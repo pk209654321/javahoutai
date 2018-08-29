@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sscf.collect.dao.SingleuserDao">
+
+    <select id="qrySingleuser" parameterType="com.sscf.collect.dto.SingleuserDto" resultType="com.sscf.collect.entity.Singleuser">
+           SELECT
+                t.single_user_id,
+                t.page_type,
+                b.nick_name single_user_name,
+                INSERT (b.mobile_tel, 4, 4, '****') single_user_phone,
+                b.phone_type single_desire,
+                b.address single_region,
+                t.single_employ_time,
+                t.single_click,
+                t.average_day single_reflux_day,
+                b.create_time single_record_date,
+                (select COUNT(DISTINCT u.user_id) from t_user_course u where u.status=2 and u.user_id=t.single_user_id limit 1 ) single_buy,
+                t.quantum_reflux_day,
+                t.quantum_buy,
+                t.average_day,
+                b.last_login_time last_time,
+                t.course_id,
+                t.ad_id
+            FROM
+                (
+                    SELECT
+                        a.single_user_id,
+                        a.page_type,
+                        sum(a.single_employ_time) single_employ_time,
+                        sum(a.single_click) single_click,
+                        sum(a.quantum_reflux_day) / #{days} quantum_reflux_day,
+                        sum(a.quantum_buy) / #{days} quantum_buy,
+                        COUNT(DISTINCT a.insert_time) average_day,
+                        a.course_id,
+                        a.ad_id
+                    FROM
+                        t_singleuser a
+                    WHERE
+                        a.insert_time BETWEEN #{start_time} AND #{end_time}
+                    <if test="course_id != null">
+                    AND a.course_id = #{course_id}
+                    </if>
+                    <if test="ad_id != null">
+                    AND a.ad_id = #{ad_id}
+                    </if>
+                    GROUP BY
+                        a.single_user_id, a.page_type
+                ) t
+            LEFT JOIN t_user_info b ON t.single_user_id = b.id
+            <where>
+                <if test="average_day != null">
+                    AND average_day = #{average_day}
+                </if>
+                <if test="page_type != null">
+                    and t.page_type = #{page_type}
+                </if>
+            </where>
+            <trim prefix="having " prefixOverrides="AND" > 
+             <if test="single_buy != null">
+                 AND single_buy = #{single_buy}
+             </if>
+             </trim>
+             <if test="sort_field !=null and sort_type != null">
+                 ORDER BY <![CDATA[ ${sort_field} ${sort_type}]]> 
+             </if>   
+        <if test="rows != 0">
+            LIMIT #{offset}, #{rows}
+        </if>
+    </select>
+    
+    
+    <select id="getSingleuserCount" resultType="int" parameterType="com.sscf.collect.dto.SingleuserDto">
+        SELECT count(*) 
+            FROM (
+          SELECT t.single_user_id, 
+                 (select COUNT(DISTINCT u.user_id) from t_user_course u where u.status=2 and u.user_id=t.single_user_id limit 1 ) single_buy
+            FROM
+                (
+                    SELECT
+                        a.single_user_id,
+                        a.page_type,
+                        sum(a.single_employ_time) single_employ_time,
+                        sum(a.single_click) single_click,
+                        sum(a.quantum_reflux_day) / #{days} quantum_reflux_day,
+                        sum(a.quantum_buy) / #{days} quantum_buy,
+                        COUNT(DISTINCT a.insert_time) average_day,
+                        a.course_id,
+                        a.ad_id
+                    FROM
+                        t_singleuser a
+                    WHERE
+                        a.insert_time BETWEEN #{start_time} AND #{end_time}
+                    <if test="course_id != null">
+                    AND a.course_id = #{course_id}
+                    </if>
+                    <if test="ad_id != null">
+                    AND a.ad_id = #{ad_id}
+                    </if>
+                    GROUP BY
+                        a.single_user_id, a.page_type
+                ) t
+            <where>
+                <if test="average_day != null">
+                    AND t.average_day = #{average_day}
+                </if>
+                <if test="page_type != null">
+                    and t.page_type = #{page_type}
+                </if>
+            </where>
+            <trim prefix="having " prefixOverrides="AND" > 
+             <if test="single_buy != null">
+                 AND single_buy = #{single_buy}
+             </if>
+             </trim>
+                ) p
+    </select>
+
+</mapper>

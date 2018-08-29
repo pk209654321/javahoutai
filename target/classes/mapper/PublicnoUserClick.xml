@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sscf.collect.dao.PublicnoUserClickDao">
+	<select id="qryPublicnoUserClick" parameterType="com.sscf.collect.dto.PublicnoUserClickDto" resultType="com.sscf.collect.entity.PublicnoUserClick">
+		SELECT 
+          	b.open_id,
+          	b.weixin_name,
+          	b.tencent_source,
+          	b.majordomo,
+          	b.manager,
+          	b.salesman,
+          	b.attention_time,
+          	b.takeoff_time,
+          	c1.live_count live_count_Y,
+          	c1.live_time live_time_Y,
+          	c1.say_stock_count say_stock_count_Y,
+          	c1.say_stock_time say_stock_time_Y,
+          	c1.agency_title_count agency_title_count_Y,
+          	c1.agency_title_time agency_title_time_Y,
+          	c1.reo_limit_count reo_limit_count_Y,
+          	c1.reo_limit_time reo_limit_count_Y,
+          	c2.live_count live_count_Z,
+          	c2.live_time live_time_Z,
+          	c2.say_stock_count say_stock_count_Z,
+          	c2.say_stock_time say_stock_time_Z,
+          	c2.agency_title_count agency_title_count_Z,
+          	c2.agency_title_time agency_title_time_Z,
+          	c2.reo_limit_count reo_limit_count_Z,
+          	c2.reo_limit_time reo_limit_time_Z
+            FROM publicno_user_click c1 left join  publicno_business b
+            on c1.open_id =b.open_id
+            left join publicno_user_click c2 
+            on c1.open_id=c2.open_id
+         where c1.teacher_id=1 and c2.teacher_id=2
+       	<if test="weixin_name!=null and weixin_name !=''">
+       		and b.weixin_name=#{weixin_name}
+       	</if>
+       	<if test="tencent_source!=null and tencent_source !=''">
+       		and b.tencent_source=#{tencent_source}
+       	</if>
+       	<if test="majordomo!=null and majordomo !=''">
+       		and b.majordomo=#{majordomo}
+       	</if>
+       	<if test="manager!=null and manager !=''">
+       		and b.manager=#{manager}
+       	</if>
+       	<if test="salesman!=null and salesman !=''">
+       		and b.salesman=#{salesman}
+       	</if>
+       	<if test="start_time!=null and start_time!=''">
+       		and attention_time &gt;= #{start_time}
+       	</if>
+       	<if test="end_time!=null and end_time!=''">
+       	 	and attention_time &lt;= #{end_time}
+       	</if>
+       	<if test="order_by!=null and order_by!=''">
+       		order by ${order_by} ${sort_type}
+       	</if>
+		<if test="rows != 0">
+			LIMIT #{offset}, #{rows}
+		</if>
+	</select>
+	
+	
+	<select id="getPublicnoUserClickCount" resultType="int" parameterType="com.sscf.collect.dto.PublicnoUserClickDto">
+		SELECT 
+			count(*)
+        FROM
+			publicno_business b         
+        <where>
+        <if test="weixin_name!=null and weixin_name !=''">
+       		and b.weixin_name=#{weixin_name}
+       	</if>
+       	<if test="tencent_source!=null and tencent_source !=''">
+       		and b.tencent_source=#{tencent_source}
+       	</if>
+       	<if test="majordomo!=null and majordomo !=''">
+       		and b.majordomo=#{majordomo}
+       	</if>
+       	<if test="manager!=null and manager !=''">
+       		and b.manager=#{manager}
+       	</if>
+       	<if test="salesman!=null and salesman !=''">
+       		and b.salesman=#{salesman}
+       	</if>
+       	<if test="start_time!=null and start_time!=''">
+       		and attention_time &gt;= #{start_time}
+       	</if>
+       	<if test="end_time!=null and end_time!=''">
+       		and attention_time &lt;= #{end_time}
+       	</if>
+        </where>
+	</select>
+	
+	
+</mapper>

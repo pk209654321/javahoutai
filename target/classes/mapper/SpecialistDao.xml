@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sscf.collect.dao.SpecialistDao">
+
+	<select id="qrySpecialist" parameterType="com.sscf.collect.dto.SpecialistDto" resultType="com.sscf.collect.entity.Specialist">
+        SELECT
+            t.ad_id,
+            t.page_type,
+            b. NAME expert_name,
+            b.type expert_type,
+            ( SELECT count(1) FROM t_user_course u, t_course c WHERE u.course_id = c.id AND c.adviser_id = t.ad_id AND u. STATUS = 2) expert_number,
+            t.expert_click,
+            t.expert_daily_click,
+            t.expert_new_user,
+            t.expert_user,
+            t.expert_aggregate_user
+        FROM
+            (
+                SELECT
+                    a.ad_id,
+                    a.page_type,
+                    sum(a.expert_click) expert_click,
+                    sum(a.expert_daily_click) / #{days} expert_daily_click,
+                    sum(a.expert_new_user) expert_new_user,
+                    sum(a.expert_user) expert_user,
+                    max(a.expert_aggregate_user) expert_aggregate_user
+                FROM
+                    t_specialist a
+                WHERE
+                    a.insert_time BETWEEN #{start_time} AND #{end_time}
+                GROUP BY
+                    a.ad_id,
+                    a.page_type
+            ) t
+        LEFT JOIN t_adviser b ON t.ad_id = b.id
+		<where>
+	        	<if test="expert_name != null">
+	        		and t.expert_name = #{expert_name}
+	        	</if>
+	        	<if test="expert_type != null">
+	        		and t.expert_type = #{expert_type}
+	        	</if>
+	        	<if test="ad_id != null">
+	        		and t.ad_id = #{ad_id}
+	        	</if>
+	        	<if test="page_type != null">
+	        		and t.page_type = #{page_type}
+	        	</if>
+		</where>
+        <if test="sort_field !=null and sort_type != null">
+            ORDER BY <![CDATA[ ${sort_field} ${sort_type}]]> 
+        </if>   
+		<if test="rows != 0">
+			LIMIT #{offset}, #{rows}
+		</if>
+	</select>
+	
+	
+	<select id="getSpecialistCount" resultType="int" parameterType="com.sscf.collect.dto.SpecialistDto">
+        SELECT count(*)
+        FROM
+            (
+                SELECT
+                    a.ad_id,
+                    a.page_type,
+                    sum(a.expert_click) expert_click,
+                    sum(a.expert_daily_click) / #{days} expert_daily_click,
+                    sum(a.expert_new_user) expert_new_user,
+                    sum(a.expert_user) expert_user,
+                    max(a.expert_aggregate_user) expert_aggregate_user
+                FROM
+                    t_specialist a
+                WHERE
+                    a.insert_time BETWEEN #{start_time} AND #{end_time}
+                GROUP BY
+                    a.ad_id,
+                    a.page_type
+            ) t
+        LEFT JOIN t_adviser b ON t.ad_id = b.id
+        <where>
+                <if test="expert_name != null">
+                    and t.expert_name = #{expert_name}
+                </if>
+                <if test="expert_type != null">
+                    and t.expert_type = #{expert_type}
+                </if>
+                <if test="ad_id != null">
+                    and t.ad_id = #{ad_id}
+                </if>
+	        	<if test="page_type != null">
+	        		and t.page_type = #{page_type}
+	        	</if>
+        </where>
+	</select>
+
+</mapper>

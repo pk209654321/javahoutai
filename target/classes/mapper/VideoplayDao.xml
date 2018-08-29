@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sscf.collect.dao.VideoplayDao">
+
+	<select id="qryVideoplay" parameterType="com.sscf.collect.dto.VideoplayDto" resultType="com.sscf.collect.entity.Videoplay">
+       SELECT
+            t.course_id,
+            t.page_type,
+            t.course_click,
+            t.capita_min,
+            t.course_daily_click,
+            t.course_new_user,
+            t.course_user,
+            t.course_aggregate_user,
+            b.title course_name,
+            c. NAME teacher_name,
+            b.type course_type,
+            b.`level` course_grade,
+            datediff(now(), b.create_time) play_day,
+            b.price course_prise,
+            ( SELECT count(1) FROM t_user_course WHERE course_id = t.course_id AND STATUS = 2) purchase_number,
+            b.title broadcast_name,
+            b.type broadcast_type,
+            b.`level` broadcast_grade
+        FROM
+            (
+                SELECT
+                    a.course_id course_id,
+                    a.page_type page_type,
+                    sum(a.course_click) course_click,
+                    sum(a.capita_min) / #{days} capita_min,
+                    sum(a.course_daily_click) / #{days} course_daily_click,
+                    sum(a.course_new_user) course_new_user,
+                    sum(a.course_user) course_user,
+                    max(a.course_aggregate_user) course_aggregate_user
+                FROM
+                    t_videoplay a
+                WHERE
+                    a.insert_time BETWEEN #{start_time} AND #{end_time}
+                GROUP BY
+                    a.course_id,
+                    a.page_type
+            ) t
+        LEFT JOIN t_course b ON t.course_id = b.id
+        LEFT JOIN t_adviser c ON b.adviser_id = c.id
+		<where>
+	        	<if test="teacher_name != null">
+	        		and b.adviser_id = #{teacher_name}
+	        	</if>
+	        	<if test="page_type != null">
+	        		and t.page_type = #{page_type}
+	        	</if>
+                <if test="broadcast_type != null">
+                    and b.type = #{broadcast_type}
+                </if>
+		</where>
+        <if test="sort_field !=null and sort_type != null">
+                    ORDER BY <![CDATA[ ${sort_field} ${sort_type}]]> 
+        </if>   
+		<if test="rows != 0">
+			LIMIT #{offset}, #{rows}
+		</if>
+	</select>
+	
+	
+	<select id="getVideoplayCount" resultType="int" parameterType="com.sscf.collect.dto.VideoplayDto">
+		SELECT count(*)
+        FROM
+            (
+                SELECT
+                    a.course_id course_id,
+                    a.page_type page_type,
+                    sum(a.course_click) course_click,
+                    sum(a.capita_min) / #{days} capita_min,
+                    sum(a.course_daily_click) / #{days} course_daily_click,
+                    sum(a.course_new_user) course_new_user,
+                    sum(a.course_user) course_user,
+                    max(a.course_aggregate_user) course_aggregate_user
+                FROM
+                    t_videoplay a
+                WHERE
+                    a.insert_time BETWEEN #{start_time} AND #{end_time}
+                GROUP BY
+                    a.course_id,
+                    a.page_type
+            ) t
+        LEFT JOIN t_course b ON t.course_id = b.id
+        LEFT JOIN t_adviser c ON b.adviser_id = c.id
+        <where>
+                <if test="teacher_name != null">
+                    and b.adviser_id = #{teacher_name}
+                </if>
+                <if test="page_type != null">
+                    and t.page_type = #{page_type}
+                </if>
+                <if test="broadcast_type != null">
+                    and b.type = #{broadcast_type}
+                </if>
+        </where>
+	</select>
+</mapper>

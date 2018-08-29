@@ -1,0 +1,268 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sscf.collect.dao.UserScreeningDao">
+
+	<select id="qryAdviserScreening" parameterType="com.sscf.collect.dto.UserScreeningDto" resultType="com.sscf.collect.entity.AdviserScreeningObj">
+		select d.name,c.user_id,c.ad_id,avg(c.ad_click_count)ad_click_count,avg(c.ad_stay_time)ad_stay_time,
+		(select count(id) from t_course  where adviser_id= c.ad_id) course_num, 
+		(select count(distinct(course_id)) from t_user_course  where status=2 and user_id = c.user_id and course_id in (select id from t_course  where adviser_id= c.ad_id)) buy_num
+		from  screening_ad_info c left join t_adviser d on c.ad_id = d.id
+		<where>
+			<if test="user_id != null ">
+	        		and c.user_id = #{user_id}
+	        </if>
+	        <if test="start_time != null and start_time != ''">
+	        		<![CDATA[ and c.create_time >= #{start_time} ]]>
+	        </if>
+	        <if test="end_time != null and end_time != ''">
+	        		<![CDATA[ and c.create_time <= #{end_time} ]]>
+	        </if>
+	        <if test="source == 1">
+	        		and c.page_type =1
+	        </if>
+	        <if test="source == 2">
+	        		and c.page_type in (2,3)
+	        </if>
+	        <if test="source == 3">
+	        		and c.page_type in (1,2,3)
+	        </if>
+		</where>
+		group by c.user_id,c.ad_id
+		<if test="content_sort == 0 ">
+	        ORDER BY ad_click_count DESC,c.create_time DESC
+	    </if>
+	    <if test="content_sort == 1 ">
+	        ORDER BY ad_stay_time DESC,c.create_time DESC
+	    </if>
+	</select> 
+	
+	<select id="qryCourseScreening" parameterType="com.sscf.collect.dto.UserScreeningDto" resultType="com.sscf.collect.entity.CourseScreeningObj">
+		select e.user_id,avg(e.course_stay_time)course_stay_time,avg(e.course_click_count)course_click_count,f.title,if(f.price is null,0,f.price)price,
+		if(g.status is null,0,1) is_purchased,h.name
+		from  screening_course_info e left join t_course f on e.course_id= f.id and f.type=0 left join t_adviser h on f.adviser_id = h.id left join t_user_course g on e.user_id= g.user_id and g.status=2 and e.course_id = g.course_id 
+		<where>
+			<if test="user_id != null ">
+	        		and e.user_id = #{user_id}
+	        </if>
+	        <if test="start_time != null and start_time != ''">
+	        		<![CDATA[ and e.create_time >= #{start_time} ]]>
+	        </if>
+	        <if test="end_time != null and end_time != ''">
+	        		<![CDATA[ and e.create_time <= #{end_time} ]]>
+	        </if>
+	        <if test="source == 1">
+	        		and e.page_type =1
+	        </if>
+	        <if test="source == 2">
+	        		and e.page_type in (2,3)
+	        </if>
+	        <if test="source == 3">
+	        		and e.page_type in (1,2,3)
+	        </if>
+		</where>
+		group by e.user_id,e.course_id
+		<if test="content_sort == 0 ">
+	        ORDER BY course_click_count DESC,e.create_time DESC
+	    </if>
+	    <if test="content_sort == 1 ">
+	        ORDER BY course_stay_time DESC,e.create_time DESC
+	    </if>
+	</select> 
+	
+	<select id="qryCourseLiveScreening" parameterType="com.sscf.collect.dto.UserScreeningDto" resultType="com.sscf.collect.entity.CourseLiveScreeningObj">
+		select e.user_id,avg(e.course_stay_time)course_stay_time,avg(e.course_click_count)course_click_count,f.title,f.type,if(f.price is null,0,f.price)price,
+		if(g.status is null,0,1) is_purchased,h.name
+		from  screening_course_info e left join t_course f on e.course_id= f.id  and f.type in (1,2)  left join t_adviser h on f.adviser_id = h.id left join t_user_course g on e.user_id= g.user_id and g.status=2 and e.course_id = g.course_id 
+		<where>
+			<if test="user_id != null ">
+	        		and e.user_id = #{user_id}
+	        </if>
+	        <if test="start_time != null and start_time != ''">
+	        		<![CDATA[ and e.create_time >= #{start_time} ]]>
+	        </if>
+	        <if test="end_time != null and end_time != ''">
+	        		<![CDATA[ and e.create_time <= #{end_time} ]]>
+	        </if>
+	        <if test="source == 1">
+	        		and e.page_type =1
+	        </if>
+	        <if test="source == 2">
+	        		and e.page_type in (2,3)
+	        </if>
+	        <if test="source == 3">
+	        		and e.page_type in (1,2,3)
+	        </if>
+		</where>
+		group by e.user_id,e.course_id
+		<if test="content_sort == 0 ">
+	        ORDER BY course_click_count DESC,e.create_time DESC
+	    </if>
+	    <if test="content_sort == 1 ">
+	        ORDER BY course_stay_time DESC,e.create_time DESC
+	    </if>
+	</select> 
+	
+	<select id="qryUserScreening" parameterType="com.sscf.collect.dto.UserScreeningDto" resultType="com.sscf.collect.entity.UserScreeningObj">
+		select  a.id,a.user_id,sum(a.user_online_time)user_online_time,sum(a.operation_count)operation_count,b.mobile_tel from  screening_user_info a left join t_user_info b on a.user_id =b.id 
+		<where>
+			<if test="user_id != null ">
+	        		and a.user_id = #{user_id}
+	        </if>
+	        <if test="start_time != null and start_time != ''">
+	        		<![CDATA[ and a.create_time >= #{start_time} ]]>
+	        </if>
+	        <if test="end_time != null and end_time != ''">
+	        		<![CDATA[ and a.create_time <= #{end_time} ]]>
+	        </if>
+	        <if test="source == 1">
+	        		and a.page_type =1
+	        </if>
+	        <if test="source == 2">
+	        		and a.page_type in (2,3)
+	        </if>
+	        <if test="source == 3">
+	        		and a.page_type in (1,2,3)
+	        </if>
+		</where>
+		group by a.user_id
+		<if test="user_sort == 0 ">
+	        ORDER BY operation_count DESC,a.create_time DESC
+	    </if>
+	    <if test="user_sort == 1 ">
+	        ORDER BY user_online_time DESC,a.create_time DESC
+	    </if>
+	      <if test="rows != 0">
+            LIMIT #{offset}, #{rows}
+        </if>
+	</select> 
+	
+	<select id="getUserScreeningCount" resultType="int" parameterType="com.sscf.collect.dto.UserScreeningDto">
+		select count(id) from (
+		select a.id from  screening_user_info a left join t_user_info b on a.user_id =b.id 
+		<where>
+			<if test="user_id != null ">
+	        		and a.user_id = #{user_id}
+	        </if>
+	        <if test="start_time != null and start_time != ''">
+	        		<![CDATA[ and a.create_time >= #{start_time} ]]>
+	        </if>
+	        <if test="end_time != null and end_time != ''">
+	        		<![CDATA[ and a.create_time <= #{end_time} ]]>
+	        </if>
+	        <if test="source == 1">
+	        		and a.page_type =1
+	        </if>
+	        <if test="source == 2">
+	        		and a.page_type in (2,3)
+	        </if>
+	        <if test="source == 3">
+	        		and a.page_type in (1,2,3)
+	        </if>
+		</where>
+		group by a.user_id ) t
+	</select>
+	
+	<select id="getAdviserScreening" parameterType="com.sscf.collect.dto.UserScreeningDto" resultType="com.sscf.collect.entity.AdviserScreeningObj">
+		select d.name,c.user_id,c.ad_id,avg(c.ad_click_count)ad_click_count,avg(c.ad_stay_time)ad_stay_time, 
+		(select count(id) from t_course  where adviser_id= c.ad_id) course_num, 
+		(select count(distinct(course_id)) from t_user_course  where status=2 and user_id = c.user_id and course_id in (select id from t_course  where adviser_id= c.ad_id)) buy_num
+		from  screening_ad_info c left join t_adviser d on c.ad_id = d.id
+		<where>
+			<if test="user_id != null ">
+	        		and c.user_id = #{user_id}
+	        </if>
+	        <if test="start_time != null and start_time != ''">
+	        		<![CDATA[ and c.create_time >= #{start_time} ]]>
+	        </if>
+	        <if test="end_time != null and end_time != ''">
+	        		<![CDATA[ and c.create_time <= #{end_time} ]]>
+	        </if>
+	        <if test="source == 1">
+	        		and c.page_type =1
+	        </if>
+	        <if test="source == 2">
+	        		and c.page_type in (2,3)
+	        </if>
+	        <if test="source == 3">
+	        		and c.page_type in (1,2,3)
+	        </if>
+		</where>
+		group by c.user_id,c.ad_id
+		<if test="content_sort == 0 ">
+	        ORDER BY ad_click_count DESC,c.create_time DESC
+	    </if>
+	    <if test="content_sort == 1 ">
+	        ORDER BY ad_stay_time DESC,c.create_time DESC
+	    </if>
+	    limit 1
+	</select>
+	
+	<select id="getCourseScreening" parameterType="com.sscf.collect.dto.UserScreeningDto" resultType="com.sscf.collect.entity.CourseScreeningObj">
+		select e.user_id,avg(e.course_stay_time)course_stay_time,avg(e.course_click_count)course_click_count,f.title,f.price,
+		if(g.status is null,0,1) is_purchased,h.name
+		from  screening_course_info e left join t_course f on e.course_id= f.id and f.type =0 left join t_adviser h on f.adviser_id = h.id left join t_user_course g on e.user_id= g.user_id and g.status=2 and e.course_id = g.course_id 
+		<where>
+			<if test="user_id != null ">
+	        		and e.user_id = #{user_id}
+	        </if>
+	        <if test="start_time != null and start_time != ''">
+	        		<![CDATA[ and e.create_time >= #{start_time} ]]>
+	        </if>
+	        <if test="end_time != null and end_time != ''">
+	        		<![CDATA[ and e.create_time <= #{end_time} ]]>
+	        </if>
+	        <if test="source == 1">
+	        		and e.page_type =1
+	        </if>
+	        <if test="source == 2">
+	        		and e.page_type in (2,3)
+	        </if>
+	        <if test="source == 3">
+	        		and e.page_type in (1,2,3)
+	        </if>
+		</where>
+		group by e.user_id,e.course_id
+		<if test="content_sort == 0 ">
+	        ORDER BY course_click_count DESC,e.create_time DESC
+	    </if>
+	    <if test="content_sort == 1 ">
+	        ORDER BY course_stay_time DESC,e.create_time DESC
+	    </if>
+	    limit 1
+	</select>
+	
+	<select id="getCourseLiveScreening" parameterType="com.sscf.collect.dto.UserScreeningDto" resultType="com.sscf.collect.entity.CourseLiveScreeningObj">
+		select e.user_id,avg(e.course_stay_time)course_stay_time,avg(e.course_click_count)course_click_count,f.title,f.type,if(f.price is null,0,f.price)price,
+		if(g.status is null,0,1) is_purchased,h.name
+		from  screening_course_info e left join t_course f on e.course_id= f.id and f.type in (1,2) left join t_adviser h on f.adviser_id = h.id  left join t_user_course g on e.user_id= g.user_id and g.status=2 and e.course_id = g.course_id 
+		<where>
+			<if test="user_id != null ">
+	        		and e.user_id = #{user_id}
+	        </if>
+	        <if test="start_time != null and start_time != ''">
+	        		<![CDATA[ and e.create_time >= #{start_time} ]]>
+	        </if>
+	        <if test="end_time != null and end_time != ''">
+	        		<![CDATA[ and e.create_time <= #{end_time} ]]>
+	        </if>
+	        <if test="source == 1">
+	        		and e.page_type =1
+	        </if>
+	        <if test="source == 2">
+	        		and e.page_type in (2,3)
+	        </if>
+	        <if test="source == 3">
+	        		and e.page_type in (1,2,3)
+	        </if>
+		</where>
+		group by e.user_id,e.course_id
+		<if test="content_sort == 0 ">
+	        ORDER BY course_click_count DESC,e.create_time DESC
+	    </if>
+	    <if test="content_sort == 1 ">
+	        ORDER BY course_stay_time DESC,e.create_time DESC
+	    </if>
+	     limit 1
+	</select>
+
+</mapper>  

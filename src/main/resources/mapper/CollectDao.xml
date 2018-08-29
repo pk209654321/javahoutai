@@ -1,0 +1,634 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sscf.collect.dao.CollectDao">
+
+	<sql id="Base_Column_List" >
+            id,
+            create_time,
+            update_time,
+            user_id,
+            device,
+            device_id,
+            source,
+            version,
+            category,
+            event,
+            event_id,
+            event_name,
+            enter_time,
+            leave_time,
+            duration,
+            page_url,
+            page_title,
+            course_id,
+            catalog_id,
+            adviser_id,
+            ip,
+            imei,
+            reserve,
+            content
+	</sql>
+	
+	<select id="qryCollect" parameterType="com.sscf.collect.dto.CollectDto" resultType="com.sscf.collect.entity.Collect">
+	SELECT 
+          <include refid="Base_Column_List" />
+            FROM t_collect 
+		<where>
+	        	<if test="id != null ">
+	        		and id = #{id}
+	        	</if>
+	        	<if test="user_id != null ">
+	        		and user_id = #{user_id}
+	        	</if>
+	        	<if test="device != null ">
+	        		and device = #{device}
+	        	</if>
+	        	<if test="device_id != null and device_id != ''">
+	        		and device_id = #{device_id}
+	        	</if>
+	        	<if test="source != null ">
+	        		and source = #{source}
+	        	</if>
+	        	<if test="version != null and version != ''">
+	        		and version = #{version}
+	        	</if>
+	        	<if test="category != null and category != ''">
+	        		and category = #{category}
+	        	</if>
+	        	<if test="event != null and event != ''">
+	        		and event = #{event}
+	        	</if>
+	        	<if test="event_id != null">
+	        		and event_id = #{event_id}
+	        	</if>
+	        	<if test="event_name != null and event_name != ''">
+	        		and event_name = #{event_name}
+	        	</if>
+	        	<if test="enter_time != null ">
+	        		and enter_time = #{enter_time}
+	        	</if>
+	        	<if test="leave_time != null ">
+	        		and leave_time = #{leave_time}
+	        	</if>
+	        	<if test="duration != null ">
+	        		and duration = #{duration}
+	        	</if>
+	        	<if test="page_url != null and page_url != ''">
+	        		and page_url = #{page_url}
+	        	</if>
+	        	<if test="page_title != null and page_title != ''">
+	        		and page_title = #{page_title}
+	        	</if>
+	        	<if test="course_id != null ">
+	        		and course_id = #{course_id}
+	        	</if>
+	        	<if test="catalog_id != null ">
+	        		and catalog_id = #{catalog_id}
+	        	</if>
+	        	<if test="adviser_id != null ">
+	        		and adviser_id = #{adviser_id}
+	        	</if>
+	        	<if test="ip != null and ip != ''">
+	        		and ip = #{ip}
+	        	</if>
+	        	<if test="imei != null and imei != ''">
+	        		and imei = #{imei}
+	        	</if>
+	        	<if test="reserve != null and reserve != ''">
+	        		and reserve = #{reserve}
+	        	</if>
+	        	<if test="reserve != null">
+	        		and content = #{content}
+	        	</if>
+		</where>
+		<if test="rows != 0">
+			LIMIT #{offset}, #{rows}
+		</if>
+	</select>
+	
+    <select id="qryApiCollect" parameterType="com.sscf.collect.dto.CollectDto" resultType="com.sscf.collect.entity.Collect">
+    SELECT 
+          <include refid="Base_Column_List" />
+            FROM t_collect 
+        <where>
+                <if test="id != null ">
+                    and id = #{id}
+                </if>
+                <if test="user_id != null ">
+                    and user_id = #{user_id}
+                </if>
+                <if test="device != null ">
+                    and device = #{device}
+                </if>
+                <if test="device_id != null and device_id != ''">
+                    and device_id = #{device_id}
+                </if>
+                <if test="source != null ">
+                    and source = #{source}
+                </if>
+                <if test="version != null and version != ''">
+                    and version = #{version}
+                </if>
+                <if test="category != null and category != ''">
+                    and category = #{category}
+                </if>
+                <if test="event != null and event != ''">
+                    and event = #{event}
+                </if>
+                <if test="event_id != null">
+                    and event_id = #{event_id}
+                </if>
+                <if test="event_name != null and event_name != ''">
+                    and event_name = #{event_name}
+                </if>
+                <if test="enter_time != null ">
+                    and enter_time = #{enter_time}
+                </if>
+                <if test="start_time !=null and start_time != ''">
+	        		<![CDATA[ and enter_time >= #{start_time} ]]>
+	        	</if>
+	        	<if test="end_time !=null and end_time != '' ">
+	        		<![CDATA[ and enter_time <= #{end_time} ]]>
+	        	</if>
+                <if test="leave_time != null ">
+                    and leave_time = #{leave_time}
+                </if>
+                <if test="duration != null ">
+                    and duration = #{duration}
+                </if>
+                <if test="page_url != null and page_url != ''">
+                    and page_url = #{page_url}
+                </if>
+                <if test="page_title != null and page_title != ''">
+                    and page_title = #{page_title}
+                </if>
+                <if test="course_id != null ">
+                    and course_id = #{course_id}
+                </if>
+                <if test="catalog_id != null ">
+                    and catalog_id = #{catalog_id}
+                </if>
+                <if test="adviser_id != null ">
+                    and adviser_id = #{adviser_id}
+                </if>
+                <if test="ip != null and ip != ''">
+                    and ip = #{ip}
+                </if>
+                <if test="imei != null and imei != ''">
+                    and imei = #{imei}
+                </if>
+                <if test="reserve != null and reserve != ''">
+                    and reserve = #{reserve}
+                </if>
+                <if test="content!= null">
+                    and content = #{content}
+                </if>
+        </where>
+    </select>
+	
+	<select id="getCollectCount" resultType="int" parameterType="com.sscf.collect.dto.CollectDto">
+		select count(*)
+            FROM t_collect 
+        <where>
+	        	<if test="id != null ">
+	        		and id = #{id}
+	        	</if>
+	        	<if test="user_id != null ">
+	        		and user_id = #{user_id}
+	        	</if>
+	        	<if test="device != null ">
+	        		and device = #{device}
+	        	</if>
+	        	<if test="device_id != null and device_id != ''">
+	        		and device_id = #{device_id}
+	        	</if>
+	        	<if test="source != null ">
+	        		and source = #{source}
+	        	</if>
+	        	<if test="version != null and version != ''">
+	        		and version = #{version}
+	        	</if>
+	        	<if test="category != null and category != ''">
+	        		and category = #{category}
+	        	</if>
+	        	<if test="event != null and event != ''">
+	        		and event = #{event}
+	        	</if>
+	        	<if test="event_id != null">
+	        		and event_id = #{event_id}
+	        	</if>
+	        	<if test="event_name != null and event_name != ''">
+	        		and event_name = #{event_name}
+	        	</if>
+	        	<if test="enter_time != null ">
+	        		and enter_time = #{enter_time}
+	        	</if>
+	        	<if test="leave_time != null ">
+	        		and leave_time = #{leave_time}
+	        	</if>
+	        	<if test="duration != null ">
+	        		and duration = #{duration}
+	        	</if>
+	        	<if test="page_url != null and page_url != ''">
+	        		and page_url = #{page_url}
+	        	</if>
+	        	<if test="page_title != null and page_title != ''">
+	        		and page_title = #{page_title}
+	        	</if>
+	        	<if test="course_id != null ">
+	        		and course_id = #{course_id}
+	        	</if>
+	        	<if test="catalog_id != null ">
+	        		and catalog_id = #{catalog_id}
+	        	</if>
+	        	<if test="adviser_id != null ">
+	        		and adviser_id = #{adviser_id}
+	        	</if>
+	        	<if test="ip != null and ip != ''">
+	        		and ip = #{ip}
+	        	</if>
+	        	<if test="imei != null and imei != ''">
+	        		and imei = #{imei}
+	        	</if>
+	        	<if test="reserve != null and reserve != ''">
+	        		and reserve = #{reserve}
+	        	</if>
+	        	<if test="content != null">
+	        		and content = #{content}
+	        	</if>
+        </where>
+	</select>
+
+	<select id="getCollect" resultType="com.sscf.collect.entity.Collect" parameterType="com.sscf.collect.dto.CollectDto">
+        SELECT 
+         <include refid="Base_Column_List" />
+        <![CDATA[
+            FROM t_collect 
+            WHERE 
+			    id = #{id}
+                
+        ]]>
+	</select>
+ 
+    <select id="qryCollectForScoreTask" resultType="com.sscf.collect.entity.Collect" parameterType="com.sscf.collect.dto.CollectDto">
+        SELECT 
+         <include refid="Base_Column_List" />
+            FROM t_collect 
+           WHERE catalog_id IS NOT NULL 
+             AND user_id IS NOT NULL 
+             AND duration > 0
+             AND DATE_FORMAT(create_time,'%m-%d-%Y') = DATE_FORMAT(#{create_time},'%m-%d-%Y');
+    </select>
+	
+	<insert id="addCollect" parameterType="com.sscf.collect.entity.Collect" >
+        INSERT INTO t_collect 
+        <trim prefix="(" suffix=")" suffixOverrides="," >
+              <if test="true">
+              create_time,
+              </if>
+              <if test="true">
+              update_time,
+              </if>
+              <if test="user_id != null">
+              user_id,
+              </if>
+              <if test="device != null">
+              device,
+              </if>
+              <if test="device_id != null">
+              device_id,
+              </if>
+              <if test="source != null">
+              source,
+              </if>
+              <if test="version != null">
+              version,
+              </if>
+              <if test="category != null">
+              category,
+              </if>
+              <if test="event != null">
+              event,
+              </if>
+              <if test="event_id != null">
+              event_id,
+              </if>
+              <if test="event_name != null">
+              event_name,
+              </if>
+              <if test="enter_time != null">
+              enter_time,
+              </if>
+              <if test="leave_time != null">
+              leave_time,
+              </if>
+              <if test="duration != null">
+              duration,
+              </if>
+              <if test="page_url != null">
+              page_url,
+              </if>
+              <if test="page_title != null">
+              page_title,
+              </if>
+              <if test="course_id != null">
+              course_id,
+              </if>
+              <if test="catalog_id != null">
+              catalog_id,
+              </if>
+              <if test="adviser_id != null">
+              adviser_id,
+              </if>
+              <if test="ip != null">
+              ip,
+              </if>
+              <if test="imei != null">
+              imei,
+              </if>
+              <if test="reserve != null">
+              reserve,
+              </if>
+              <if test="content != null">
+              content,
+              </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides="," >
+            <if test="true">
+            now(),
+            </if>
+            <if test="true">
+            now(),
+            </if>
+            <if test="user_id != null">
+            #{user_id},
+            </if>
+            <if test="device != null">
+            #{device},
+            </if>
+            <if test="device_id != null">
+            #{device_id},
+            </if>
+            <if test="source != null">
+            #{source},
+            </if>
+            <if test="version != null">
+            #{version},
+            </if>
+            <if test="category != null">
+            #{category},
+            </if>
+            <if test="event != null">
+            #{event},
+            </if>
+            <if test="event_id != null">
+            #{event_id},
+            </if>
+            <if test="event_name != null">
+            #{event_name},
+            </if>
+            <if test="enter_time != null">
+            #{enter_time},
+            </if>
+            <if test="leave_time != null">
+            #{leave_time},
+            </if>
+            <if test="duration != null">
+            #{duration},
+            </if>
+            <if test="page_url != null">
+            #{page_url},
+            </if>
+            <if test="page_title != null">
+            #{page_title},
+            </if>
+            <if test="course_id != null">
+            #{course_id},
+            </if>
+            <if test="catalog_id != null">
+            #{catalog_id},
+            </if>
+            <if test="adviser_id != null">
+            #{adviser_id},
+            </if>
+            <if test="ip != null">
+            #{ip},
+            </if>
+            <if test="imei != null">
+            #{imei},
+            </if>
+            <if test="reserve != null">
+            #{reserve},
+            </if>
+            <if test="content != null">
+            #{content},
+            </if>
+        </trim>  
+        on duplicate key update update_time = now()
+	</insert>
+	
+	<insert id="addBatchCollect">
+    INSERT INTO t_collect (
+            create_time ,
+            update_time ,
+            user_id ,
+            device ,
+            device_id ,
+            source ,
+            version ,
+            category ,
+            event ,
+            event_id ,
+            event_name ,
+            enter_time ,
+            leave_time ,
+            duration ,
+            page_url ,
+            page_title ,
+            course_id ,
+            catalog_id ,
+            adviser_id ,
+            ip ,
+            imei ,
+            reserve,
+            content
+    ) VALUES
+    <foreach collection ="list" item="item" separator =",">
+    ( 
+            now(),
+            now(),
+            #{item.user_id},
+            #{item.device},
+            #{item.device_id},
+            #{item.source},
+            #{item.version},
+            #{item.category},
+            #{item.event},
+            #{item.event_id},
+            #{item.event_name},
+            #{item.enter_time},
+            #{item.leave_time},
+            #{item.duration},
+            #{item.page_url},
+            #{item.page_title},
+            #{item.course_id},
+            #{item.catalog_id},
+            #{item.adviser_id},
+            #{item.ip},
+            #{item.imei},
+            #{item.reserve},
+            #{item.content}
+    )
+    </foreach >
+    </insert>
+
+	<update id="modCollect" parameterType="com.sscf.collect.entity.Collect">
+        UPDATE t_collect 
+            <set>
+					<if test="user_id != null">
+						user_id = #{user_id},
+					</if>
+					<if test="device != null">
+						device = #{device},
+					</if>
+					<if test="device_id != null">
+						device_id = #{device_id},
+					</if>
+					<if test="source != null">
+						source = #{source},
+					</if>
+					<if test="version != null">
+						version = #{version},
+					</if>
+					<if test="category != null">
+						category = #{category},
+					</if>
+					<if test="event != null">
+						event = #{event},
+					</if>
+					<if test="event_id != null">
+						event_id = #{event_id},
+					</if>
+					<if test="event_name != null">
+						event_name = #{event_name},
+					</if>
+					<if test="enter_time != null">
+						enter_time = #{enter_time},
+					</if>
+					<if test="leave_time != null">
+						leave_time = #{leave_time},
+					</if>
+					<if test="duration != null">
+						duration = #{duration},
+					</if>
+					<if test="page_url != null">
+						page_url = #{page_url},
+					</if>
+					<if test="page_title != null">
+						page_title = #{page_title},
+					</if>
+					<if test="course_id != null">
+						course_id = #{course_id},
+					</if>
+					<if test="catalog_id != null">
+						catalog_id = #{catalog_id},
+					</if>
+					<if test="adviser_id != null">
+						adviser_id = #{adviser_id},
+					</if>
+					<if test="ip != null">
+						ip = #{ip},
+					</if>
+					<if test="imei != null">
+						imei = #{imei},
+					</if>
+					<if test="reserve != null">
+						reserve = #{reserve},
+					</if>
+					<if test="content != null">
+						content = #{content},
+					</if>
+            </set>
+        WHERE 
+            id = #{id}
+	</update>
+	
+    <update id="modBatchCollect" parameterType="java.util.List">
+      <foreach collection="list" item="item" index="index" open="" close="" separator=";">  
+        UPDATE t_collect 
+            <set>
+                    <if test="item.user_id != null">
+                        user_id = #{item.user_id},
+                    </if>
+                    <if test="item.device != null">
+                        device = #{item.device},
+                    </if>
+                    <if test="item.device_id != null">
+                        device_id = #{item.device_id},
+                    </if>
+                    <if test="item.source != null">
+                        source = #{item.source},
+                    </if>
+                    <if test="item.version != null">
+                        version = #{item.version},
+                    </if>
+                    <if test="item.category != null">
+                        category = #{item.category},
+                    </if>
+                    <if test="item.event != null">
+                        event = #{item.event},
+                    </if>
+                    <if test="item.event_id != null">
+                        event_id = #{item.event_id},
+                    </if>
+                    <if test="item.event_name != null">
+                        event_name = #{item.event_name},
+                    </if>
+                    <if test="item.enter_time != null">
+                        enter_time = #{item.enter_time},
+                    </if>
+                    <if test="item.leave_time != null">
+                        leave_time = #{item.leave_time},
+                    </if>
+                    <if test="item.duration != null">
+                        duration = #{item.duration},
+                    </if>
+                    <if test="item.page_url != null">
+                        page_url = #{item.page_url},
+                    </if>
+                    <if test="item.page_title != null">
+                        page_title = #{item.page_title},
+                    </if>
+                    <if test="item.course_id != null">
+                        course_id = #{item.course_id},
+                    </if>
+                    <if test="item.catalog_id != null">
+                        catalog_id = #{item.catalog_id},
+                    </if>
+                    <if test="item.adviser_id != null">
+                        adviser_id = #{item.adviser_id},
+                    </if>
+                    <if test="item.ip != null">
+                        ip = #{item.ip},
+                    </if>
+                    <if test="item.imei != null">
+                        imei = #{item.imei},
+                    </if>
+                    <if test="item.reserve != null">
+                        reserve = #{item.reserve},
+                    </if>
+                    <if test="item.content != null">
+                        content = #{item.content},
+                    </if>
+            </set>
+        WHERE 
+            id = #{item.id}
+      </foreach>  
+    </update>
+
+	<delete id="delCollect" parameterType="java.lang.Long">
+        DELETE FROM t_collect 
+         WHERE
+           id = #{id}
+	</delete>
+</mapper>
