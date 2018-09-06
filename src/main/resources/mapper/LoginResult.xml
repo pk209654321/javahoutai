@@ -22,9 +22,6 @@
 		<if test="end_time!=null and end_time!=''">
 			and r.insert_time &lt;=#{end_time}
 		</if>
-		<if test="user_name!=null and user_name!=''">
-		    and d.sUserName=#{user_name}
-		</if>
 		<if test="mobile!=null and mobile!=''">
 			and d.sPhone=#{mobile}
 		</if>
@@ -45,9 +42,6 @@
 		</if>
 		<if test="end_time!=null and end_time!=''">
 			and r.insert_time &lt;=#{end_time}
-		</if>
-		<if test="user_name!=null and user_name!=''">
-		    and d.sUserName=#{user_name}
 		</if>
 		<if test="mobile!=null and mobile!=''">
 			and d.sPhone=#{mobile}

@@ -11,13 +11,14 @@ public class LoginResult implements Serializable{
 	private Integer user_id;
 	private Integer login_count ;
 	private String insert_time;
-	private String hour;
+	private Integer hour;
 	
 	
-	public String getHour() {
+	
+	public Integer getHour() {
 		return hour;
 	}
-	public void setHour(String hour) {
+	public void setHour(Integer hour) {
 		this.hour = hour;
 	}
 	public Long getId() {

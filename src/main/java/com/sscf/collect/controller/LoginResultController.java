@@ -59,8 +59,8 @@ public class LoginResultController extends BaseController {
 	@RequestMapping(value = "/select")
 	@ResponseBody
 	public Result getLoginResult(@RequestBody LoginResultDto dto) {
-		PageResult<LoginResult> pageResult = loginResult.selectPageLoginResult(dto);
-		return ResultUtil.success(pageResult);
+		//PageResult<LoginResult> pageResult = loginResult.selectPageLoginResult(dto);
+		return ResultUtil.success("");
 	}
 
 

@@ -17,7 +17,7 @@ public class LoginResultService {
 	@Autowired
 	LoginResultDao loginResultDao;
 	
-	public PageResult<LoginResult> selectPageLoginResult(LoginResultDto dto){
+	/*public PageResult<LoginResult> selectPageLoginResult(LoginResultDto dto){
 		if(dto==null) {
 			dto=new LoginResultDto();
 		}
@@ -28,20 +28,8 @@ public class LoginResultService {
 			page.setRows(list);
 		}
 		return page;
-	}
+	}*/
 	
-	 /*public PageResult<Collect> qryPageCollect(CollectDto dto) {
-	        if (dto == null) {
-	            dto = new CollectDto();
-	        }
-	        int total = collectDao.getCollectCount(dto);
-	        PageResult<Collect> page = new PageResult<>(dto, total);
-	        if (page.isHasRows()) {
-	            List<Collect> list = collectDao.qryCollect(dto);
-	            page.setRows(list);
-	        }
-	        return page;
-	    }*/
 	public List<LoginResult> selectLoginResultList(LoginResultDto dto){
 		List<LoginResult> list = loginResultDao.selectLoginResultList(dto);
 		return list;
