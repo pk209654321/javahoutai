@@ -44,7 +44,7 @@ public class LoginReceive {
 			// JSONArray.parseArray(JSON.toJSONString(selectLoginResultList));
 
 		} catch (Exception e) {
-			logger.error("查询轨迹失败", e);
+			logger.error("查询个小时登录次数失败", e);
 		}
 		reply(replyTo, correlationId, selectLoginResultList);// 回调方法
 	}
