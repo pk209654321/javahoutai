@@ -33,7 +33,7 @@ public class CollectTask {
 	@Autowired
 	private CollectService collectService;
 
-	/*@Scheduled(fixedRate = 60000)
+	//@Scheduled(fixedRate = 60000)
 	public void doPush() {
 		String key = RedisConstants.LOCK_COLLECT_TASK;
 		RedisLock lock = redisUtils.lock(key, 5, TimeUnit.MINUTES);
@@ -57,6 +57,6 @@ public class CollectTask {
 		} finally {
 			lock.unlock();
 		}
-	}*/
+	}
 
 }

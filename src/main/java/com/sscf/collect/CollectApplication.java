@@ -20,7 +20,7 @@ import com.alibaba.fastjson.support.spring.FastJsonHttpMessageConverter;
 //@ComponentScan(basePackages = { "com.sscf.education" })
 public class CollectApplication {
 	
-	@Bean
+	/*@Bean
     public HttpMessageConverters fastJsonConfigure(){
         FastJsonHttpMessageConverter converter = new FastJsonHttpMessageConverter();
         FastJsonConfig fastJsonConfig = new FastJsonConfig();
@@ -29,7 +29,7 @@ public class CollectApplication {
         //fastJsonConfig.setDateFormat("yyyy-MM-dd HH:mm:ss");
         converter.setFastJsonConfig(fastJsonConfig);
         return new HttpMessageConverters(converter);
-    }
+    }*/
 	
     public static void main(String[] args) {
         SpringApplication.run(CollectApplication.class, args);

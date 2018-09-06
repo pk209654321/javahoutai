@@ -19,6 +19,7 @@ public class Test {
 	        String name = user.getName();
 	        System.out.println(name);
 	        param.put("person",user); 
+	        int a=1;
 	        return null; 
 	} 
 }

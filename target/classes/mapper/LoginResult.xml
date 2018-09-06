@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sscf.collect.dao.LoginResultDao">
+
+<select id="selectLoginResultList"  parameterType="com.sscf.collect.dto.LoginResultDto" resultType="com.sscf.collect.entity.login.LoginResult" >
+	select 
+		sum(r.login_count) login_count,
+		DATE_FORMAT(insert_time,'%H') hour
+	 from  
+	 	login_result r
+	 left join 
+	 	t_account_detail d
+	 on 
+	 	r.user_id = d.iAccountId 	 	
+	<where>
+		<if test="user_id !=null">
+			and r.user_id =#{user_id}
+		</if>
+		<if test="start_time!=null and start_time!=''">
+			and r.insert_time &gt;= #{start_time}
+		</if>
+		<if test="end_time!=null and end_time!=''">
+			and r.insert_time &lt;=#{end_time}
+		</if>
+		<if test="user_name!=null and user_name!=''">
+		    and d.sUserName=#{user_name}
+		</if>
+		<if test="mobile!=null and mobile!=''">
+			and d.sPhone=#{mobile}
+		</if>
+	</where>
+	group by DATE_FORMAT(r.insert_time,'%H')
+</select>
+
+<select id="getLoginResultCount" resultType="int" parameterType="com.sscf.collect.dto.LoginResultDto">
+	select count(*) from (select id from login_result r
+		left join t_account_detail d
+		on r.user_id = d.iAccountId 
+	<where>
+		<if test="user_id !=null">
+			and r.user_id =#{user_id}
+		</if>
+		<if test="start_time!=null and start_time!=''">
+			and r.insert_time &gt;= #{start_time}
+		</if>
+		<if test="end_time!=null and end_time!=''">
+			and r.insert_time &lt;=#{end_time}
+		</if>
+		<if test="user_name!=null and user_name!=''">
+		    and d.sUserName=#{user_name}
+		</if>
+		<if test="mobile!=null and mobile!=''">
+			and d.sPhone=#{mobile}
+		</if>
+	</where>
+	group by DATE_FORMAT(r.insert_time,'%H')) t
+</select>
+</mapper>
