@@ -20,7 +20,6 @@ import com.sscf.collect.dto.LoginResultDto;
 import com.sscf.collect.entity.PubAttributeLogin;
 import com.sscf.collect.entity.login.LoginResult;
 import com.sscf.collect.service.LoginResultService;
-import com.sscf.education.common.entity.PageResult;
 
 @Component
 public class LoginReceive {
