@@ -19,6 +19,7 @@ import com.sscf.collect.constant.MqConstant;
 import com.sscf.collect.dto.LoginResultDto;
 import com.sscf.collect.entity.PubAttributeLogin;
 import com.sscf.collect.entity.login.LoginResult;
+import com.sscf.collect.entity.login.ResultLogin;
 import com.sscf.collect.service.LoginResultService;
 
 @Component
@@ -46,10 +47,11 @@ public class LoginReceive {
 			if (selectLoginResultList.size() < 24) {//如果当前
 				for (int i = 0; i < 24; i++) {
 					boolean flag=false;
-					for (int j = 0; i < selectLoginResultList.size(); i++) {
+					for (int j = 0; j < selectLoginResultList.size(); j++) {
 						LoginResult loginResult = selectLoginResultList.get(j);
 						if(i==loginResult.getHour()) {
 							flag=true;
+							break;
 						}
 					}
 					if(!flag) {
@@ -60,17 +62,21 @@ public class LoginReceive {
 					}
 				}
 			}
+			logger.debug("集合大小------"+selectLoginResultList.size());
 			logger.debug(JSON.toJSONString(selectLoginResultList));
 			// JSONArray cases =
 			// JSONArray.parseArray(JSON.toJSONString(selectLoginResultList));
+			reply(replyTo, correlationId, selectLoginResultList);// 回调方法
 		} catch (Exception e) {
 			logger.error("查询个小时登录次数失败", e);
 		}
-		reply(replyTo, correlationId, selectLoginResultList);// 回调方法
+		
 	}
 
 	private void reply(String replyTo, byte[] correlationId, List<LoginResult> msg) {
-		amqpTemplate.convertAndSend(replyTo, JSON.toJSONString(msg), message1 -> {
+		ResultLogin resultLogin = new ResultLogin();
+		resultLogin.setData(msg);
+		amqpTemplate.convertAndSend(replyTo, JSON.toJSONString(resultLogin), message1 -> {
 			message1.getMessageProperties().setCorrelationId(correlationId);
 			return message1;
 		});

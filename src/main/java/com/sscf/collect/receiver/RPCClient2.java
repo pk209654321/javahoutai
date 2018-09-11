@@ -36,7 +36,7 @@ public class RPCClient2 {
         factory.setPort(5672);
         factory.setUsername("admin");
         factory.setPassword("123456");
-        factory.setVirtualHost("/local");
+        factory.setVirtualHost("/");
 
         connection = factory.newConnection();
         channel = connection.createChannel();

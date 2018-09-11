@@ -1,28 +1,11 @@
 package com.sscf.collect.receiver;
 
 
-import java.nio.charset.Charset;
-import java.util.ArrayList;
-import java.util.List;
 
-import org.apache.commons.collections.CollectionUtils;
-import org.apache.commons.lang.StringUtils;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import org.springframework.amqp.core.AmqpTemplate;
-import org.springframework.amqp.rabbit.annotation.RabbitListener;
-import org.springframework.amqp.support.AmqpHeaders;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.messaging.handler.annotation.Header;
+
 import org.springframework.stereotype.Component;
 
-import com.alibaba.fastjson.JSON;
-import com.alibaba.fastjson.TypeReference;
-import com.sscf.education.common.constants.DictConstants;
-import com.sscf.education.common.entity.Result;
 
-import cn.hutool.core.convert.Convert;
 
 @Component
 public class CrmMqRpcService {

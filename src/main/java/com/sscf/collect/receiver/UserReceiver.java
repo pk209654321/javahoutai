@@ -9,9 +9,9 @@ import com.sscf.collect.entity.login.LoginResult;
 @Component
 public class UserReceiver {
 	// 接受者
-	@RabbitListener(queues = "online-user-trace")
+	/*@RabbitListener(queues = "online-user-trace")
 	public void process(LoginResult user) {
 		System.out.println("1111111111111111111");
 		System.out.println("Consumer 2 : " + user);
-	}
+	}*/
 }
