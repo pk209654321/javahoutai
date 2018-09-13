@@ -11338,3 +11338,239 @@ Caused by: com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Table 'big
 2018-09-11 14:26:46,418 DEBUG [main] com.sscf.collect.dao.LoginResultDao.selectLoginResultList : ==>  Preparing: select sum(r.login_count) login_count, DATE_FORMAT(insert_time,'%H') hour from login_result r WHERE r.insert_time >= ? and r.insert_time <=? and r.phone=? group by DATE_FORMAT(r.insert_time,'%H') 
 2018-09-11 14:26:48,837 DEBUG [main] com.sscf.collect.dao.LoginResultDao.selectLoginResultList : ==> Parameters: 2018-09-03 00:00:00(String), 2018-09-11 24:00:00(String), 13073333333(String)
 2018-09-11 14:26:50,772 DEBUG [main] com.sscf.collect.dao.LoginResultDao.selectLoginResultList : <==      Total: 1
+2018-09-11 16:19:08,411 INFO  [main] com.sscf.collect.receiver.TestRabbitMQ : The following profiles are active: dev
+2018-09-11 16:19:11,735 DEBUG [main] org.hibernate.validator.internal.engine.resolver.DefaultTraversableResolver : Cannot find javax.persistence.Persistence on classpath. Assuming non JPA 2 environment. All properties will per default be traversable.
+2018-09-11 16:19:11,737 DEBUG [main] org.hibernate.validator.internal.engine.resolver.DefaultTraversableResolver : Cannot find javax.persistence.Persistence on classpath. Assuming non JPA 2 environment. All properties will per default be traversable.
+2018-09-11 16:19:11,737 DEBUG [main] org.hibernate.validator.internal.engine.ConfigurationImpl : Setting custom MessageInterpolator of type org.springframework.validation.beanvalidation.LocaleContextMessageInterpolator
+2018-09-11 16:19:11,738 DEBUG [main] org.hibernate.validator.internal.engine.ConfigurationImpl : Setting custom ConstraintValidatorFactory of type org.springframework.validation.beanvalidation.SpringConstraintValidatorFactory
+2018-09-11 16:19:11,738 DEBUG [main] org.hibernate.validator.internal.engine.ConfigurationImpl : Setting custom ParameterNameProvider of type com.sun.proxy.$Proxy52
+2018-09-11 16:19:11,738 DEBUG [main] org.hibernate.validator.internal.xml.ValidationXmlParser : Trying to load META-INF/validation.xml for XML based Validator configuration.
+2018-09-11 16:19:11,739 DEBUG [main] org.hibernate.validator.internal.xml.ResourceLoaderHelper : Trying to load META-INF/validation.xml via user class loader
+2018-09-11 16:19:11,740 DEBUG [main] org.hibernate.validator.internal.xml.ResourceLoaderHelper : Trying to load META-INF/validation.xml via TCCL
+2018-09-11 16:19:11,741 DEBUG [main] org.hibernate.validator.internal.xml.ResourceLoaderHelper : Trying to load META-INF/validation.xml via Hibernate Validator's class loader
+2018-09-11 16:19:11,742 DEBUG [main] org.hibernate.validator.internal.xml.ValidationXmlParser : No META-INF/validation.xml found. Using annotation based configuration only.
+2018-09-11 16:19:14,569 DEBUG [main] org.hibernate.validator.internal.engine.resolver.DefaultTraversableResolver : Cannot find javax.persistence.Persistence on classpath. Assuming non JPA 2 environment. All properties will per default be traversable.
+2018-09-11 16:19:14,581 DEBUG [main] org.hibernate.validator.internal.engine.resolver.DefaultTraversableResolver : Cannot find javax.persistence.Persistence on classpath. Assuming non JPA 2 environment. All properties will per default be traversable.
+2018-09-11 16:19:14,582 DEBUG [main] org.hibernate.validator.internal.engine.ConfigurationImpl : Setting custom MessageInterpolator of type org.springframework.validation.beanvalidation.LocaleContextMessageInterpolator
+2018-09-11 16:19:14,582 DEBUG [main] org.hibernate.validator.internal.engine.ConfigurationImpl : Setting custom ConstraintValidatorFactory of type org.springframework.validation.beanvalidation.SpringConstraintValidatorFactory
+2018-09-11 16:19:14,582 DEBUG [main] org.hibernate.validator.internal.engine.ConfigurationImpl : Setting custom ParameterNameProvider of type com.sun.proxy.$Proxy52
+2018-09-11 16:19:14,583 DEBUG [main] org.hibernate.validator.internal.xml.ValidationXmlParser : Trying to load META-INF/validation.xml for XML based Validator configuration.
+2018-09-11 16:19:14,583 DEBUG [main] org.hibernate.validator.internal.xml.ResourceLoaderHelper : Trying to load META-INF/validation.xml via user class loader
+2018-09-11 16:19:14,583 DEBUG [main] org.hibernate.validator.internal.xml.ResourceLoaderHelper : Trying to load META-INF/validation.xml via TCCL
+2018-09-11 16:19:14,584 DEBUG [main] org.hibernate.validator.internal.xml.ResourceLoaderHelper : Trying to load META-INF/validation.xml via Hibernate Validator's class loader
+2018-09-11 16:19:14,584 DEBUG [main] org.hibernate.validator.internal.xml.ValidationXmlParser : No META-INF/validation.xml found. Using annotation based configuration only.
+2018-09-11 16:19:19,365 DEBUG [main] org.hibernate.validator.internal.engine.resolver.DefaultTraversableResolver : Cannot find javax.persistence.Persistence on classpath. Assuming non JPA 2 environment. All properties will per default be traversable.
+2018-09-11 16:19:19,367 DEBUG [main] org.hibernate.validator.internal.engine.resolver.DefaultTraversableResolver : Cannot find javax.persistence.Persistence on classpath. Assuming non JPA 2 environment. All properties will per default be traversable.
+2018-09-11 16:19:19,367 DEBUG [main] org.hibernate.validator.internal.engine.ConfigurationImpl : Setting custom MessageInterpolator of type org.springframework.validation.beanvalidation.LocaleContextMessageInterpolator
+2018-09-11 16:19:19,368 DEBUG [main] org.hibernate.validator.internal.engine.ConfigurationImpl : Setting custom ConstraintValidatorFactory of type org.springframework.validation.beanvalidation.SpringConstraintValidatorFactory
+2018-09-11 16:19:19,368 DEBUG [main] org.hibernate.validator.internal.engine.ConfigurationImpl : Setting custom ParameterNameProvider of type com.sun.proxy.$Proxy52
+2018-09-11 16:19:19,368 DEBUG [main] org.hibernate.validator.internal.xml.ValidationXmlParser : Trying to load META-INF/validation.xml for XML based Validator configuration.
+2018-09-11 16:19:19,368 DEBUG [main] org.hibernate.validator.internal.xml.ResourceLoaderHelper : Trying to load META-INF/validation.xml via user class loader
+2018-09-11 16:19:19,369 DEBUG [main] org.hibernate.validator.internal.xml.ResourceLoaderHelper : Trying to load META-INF/validation.xml via TCCL
+2018-09-11 16:19:19,369 DEBUG [main] org.hibernate.validator.internal.xml.ResourceLoaderHelper : Trying to load META-INF/validation.xml via Hibernate Validator's class loader
+2018-09-11 16:19:19,370 DEBUG [main] org.hibernate.validator.internal.xml.ValidationXmlParser : No META-INF/validation.xml found. Using annotation based configuration only.
+2018-09-11 16:19:19,681 INFO  [main] com.sscf.collect.receiver.TestRabbitMQ : Started TestRabbitMQ in 14.173 seconds (JVM running for 15.202)
+2018-09-11 16:19:19,897 DEBUG [main] com.sscf.collect.dao.LoginResultDao.selectLoginResultList : ==>  Preparing: select sum(r.login_count) login_count, DATE_FORMAT(insert_time,'%H') hour from login_result r WHERE r.insert_time >= ? and r.insert_time <=? and r.phone=? group by DATE_FORMAT(r.insert_time,'%H') 
+2018-09-11 16:19:19,922 DEBUG [main] com.sscf.collect.dao.LoginResultDao.selectLoginResultList : ==> Parameters: 2018-09-03 00:00:00(String), 2018-09-11 24:00:00(String), 13073333333(String)
+2018-09-11 16:19:19,945 DEBUG [main] com.sscf.collect.dao.LoginResultDao.selectLoginResultList : <==      Total: 1
+2018-09-11 16:28:47,214 INFO  [main] com.sscf.collect.receiver.TestRabbitMQ : The following profiles are active: dev
+2018-09-11 16:28:52,201 DEBUG [main] org.hibernate.validator.internal.engine.resolver.DefaultTraversableResolver : Cannot find javax.persistence.Persistence on classpath. Assuming non JPA 2 environment. All properties will per default be traversable.
+2018-09-11 16:28:52,204 DEBUG [main] org.hibernate.validator.internal.engine.resolver.DefaultTraversableResolver : Cannot find javax.persistence.Persistence on classpath. Assuming non JPA 2 environment. All properties will per default be traversable.
+2018-09-11 16:28:52,204 DEBUG [main] org.hibernate.validator.internal.engine.ConfigurationImpl : Setting custom MessageInterpolator of type org.springframework.validation.beanvalidation.LocaleContextMessageInterpolator
+2018-09-11 16:28:52,205 DEBUG [main] org.hibernate.validator.internal.engine.ConfigurationImpl : Setting custom ConstraintValidatorFactory of type org.springframework.validation.beanvalidation.SpringConstraintValidatorFactory
+2018-09-11 16:28:52,205 DEBUG [main] org.hibernate.validator.internal.engine.ConfigurationImpl : Setting custom ParameterNameProvider of type com.sun.proxy.$Proxy52
+2018-09-11 16:28:52,205 DEBUG [main] org.hibernate.validator.internal.xml.ValidationXmlParser : Trying to load META-INF/validation.xml for XML based Validator configuration.
+2018-09-11 16:28:52,205 DEBUG [main] org.hibernate.validator.internal.xml.ResourceLoaderHelper : Trying to load META-INF/validation.xml via user class loader
+2018-09-11 16:28:52,206 DEBUG [main] org.hibernate.validator.internal.xml.ResourceLoaderHelper : Trying to load META-INF/validation.xml via TCCL
+2018-09-11 16:28:52,207 DEBUG [main] org.hibernate.validator.internal.xml.ResourceLoaderHelper : Trying to load META-INF/validation.xml via Hibernate Validator's class loader
+2018-09-11 16:28:52,208 DEBUG [main] org.hibernate.validator.internal.xml.ValidationXmlParser : No META-INF/validation.xml found. Using annotation based configuration only.
+2018-09-11 16:28:56,811 DEBUG [main] org.hibernate.validator.internal.engine.resolver.DefaultTraversableResolver : Cannot find javax.persistence.Persistence on classpath. Assuming non JPA 2 environment. All properties will per default be traversable.
+2018-09-11 16:28:56,831 DEBUG [main] org.hibernate.validator.internal.engine.resolver.DefaultTraversableResolver : Cannot find javax.persistence.Persistence on classpath. Assuming non JPA 2 environment. All properties will per default be traversable.
+2018-09-11 16:28:56,832 DEBUG [main] org.hibernate.validator.internal.engine.ConfigurationImpl : Setting custom MessageInterpolator of type org.springframework.validation.beanvalidation.LocaleContextMessageInterpolator
+2018-09-11 16:28:56,832 DEBUG [main] org.hibernate.validator.internal.engine.ConfigurationImpl : Setting custom ConstraintValidatorFactory of type org.springframework.validation.beanvalidation.SpringConstraintValidatorFactory
+2018-09-11 16:28:56,832 DEBUG [main] org.hibernate.validator.internal.engine.ConfigurationImpl : Setting custom ParameterNameProvider of type com.sun.proxy.$Proxy52
+2018-09-11 16:28:56,833 DEBUG [main] org.hibernate.validator.internal.xml.ValidationXmlParser : Trying to load META-INF/validation.xml for XML based Validator configuration.
+2018-09-11 16:28:56,833 DEBUG [main] org.hibernate.validator.internal.xml.ResourceLoaderHelper : Trying to load META-INF/validation.xml via user class loader
+2018-09-11 16:28:56,834 DEBUG [main] org.hibernate.validator.internal.xml.ResourceLoaderHelper : Trying to load META-INF/validation.xml via TCCL
+2018-09-11 16:28:56,834 DEBUG [main] org.hibernate.validator.internal.xml.ResourceLoaderHelper : Trying to load META-INF/validation.xml via Hibernate Validator's class loader
+2018-09-11 16:28:56,835 DEBUG [main] org.hibernate.validator.internal.xml.ValidationXmlParser : No META-INF/validation.xml found. Using annotation based configuration only.
+2018-09-11 16:29:03,444 DEBUG [main] org.hibernate.validator.internal.engine.resolver.DefaultTraversableResolver : Cannot find javax.persistence.Persistence on classpath. Assuming non JPA 2 environment. All properties will per default be traversable.
+2018-09-11 16:29:03,446 DEBUG [main] org.hibernate.validator.internal.engine.resolver.DefaultTraversableResolver : Cannot find javax.persistence.Persistence on classpath. Assuming non JPA 2 environment. All properties will per default be traversable.
+2018-09-11 16:29:03,446 DEBUG [main] org.hibernate.validator.internal.engine.ConfigurationImpl : Setting custom MessageInterpolator of type org.springframework.validation.beanvalidation.LocaleContextMessageInterpolator
+2018-09-11 16:29:03,446 DEBUG [main] org.hibernate.validator.internal.engine.ConfigurationImpl : Setting custom ConstraintValidatorFactory of type org.springframework.validation.beanvalidation.SpringConstraintValidatorFactory
+2018-09-11 16:29:03,447 DEBUG [main] org.hibernate.validator.internal.engine.ConfigurationImpl : Setting custom ParameterNameProvider of type com.sun.proxy.$Proxy52
+2018-09-11 16:29:03,450 DEBUG [main] org.hibernate.validator.internal.xml.ValidationXmlParser : Trying to load META-INF/validation.xml for XML based Validator configuration.
+2018-09-11 16:29:03,450 DEBUG [main] org.hibernate.validator.internal.xml.ResourceLoaderHelper : Trying to load META-INF/validation.xml via user class loader
+2018-09-11 16:29:03,451 DEBUG [main] org.hibernate.validator.internal.xml.ResourceLoaderHelper : Trying to load META-INF/validation.xml via TCCL
+2018-09-11 16:29:03,452 DEBUG [main] org.hibernate.validator.internal.xml.ResourceLoaderHelper : Trying to load META-INF/validation.xml via Hibernate Validator's class loader
+2018-09-11 16:29:03,453 DEBUG [main] org.hibernate.validator.internal.xml.ValidationXmlParser : No META-INF/validation.xml found. Using annotation based configuration only.
+2018-09-11 16:29:03,491 INFO  [main] com.sscf.collect.receiver.TestRabbitMQ : Started TestRabbitMQ in 21.07 seconds (JVM running for 22.924)
+2018-09-11 16:53:35,550 INFO  [main] com.sscf.collect.receiver.TestRabbitMQ : The following profiles are active: dev
+2018-09-11 16:53:40,445 DEBUG [main] org.hibernate.validator.internal.engine.resolver.DefaultTraversableResolver : Cannot find javax.persistence.Persistence on classpath. Assuming non JPA 2 environment. All properties will per default be traversable.
+2018-09-11 16:53:40,447 DEBUG [main] org.hibernate.validator.internal.engine.resolver.DefaultTraversableResolver : Cannot find javax.persistence.Persistence on classpath. Assuming non JPA 2 environment. All properties will per default be traversable.
+2018-09-11 16:53:40,448 DEBUG [main] org.hibernate.validator.internal.engine.ConfigurationImpl : Setting custom MessageInterpolator of type org.springframework.validation.beanvalidation.LocaleContextMessageInterpolator
+2018-09-11 16:53:40,448 DEBUG [main] org.hibernate.validator.internal.engine.ConfigurationImpl : Setting custom ConstraintValidatorFactory of type org.springframework.validation.beanvalidation.SpringConstraintValidatorFactory
+2018-09-11 16:53:40,448 DEBUG [main] org.hibernate.validator.internal.engine.ConfigurationImpl : Setting custom ParameterNameProvider of type com.sun.proxy.$Proxy52
+2018-09-11 16:53:40,449 DEBUG [main] org.hibernate.validator.internal.xml.ValidationXmlParser : Trying to load META-INF/validation.xml for XML based Validator configuration.
+2018-09-11 16:53:40,450 DEBUG [main] org.hibernate.validator.internal.xml.ResourceLoaderHelper : Trying to load META-INF/validation.xml via user class loader
+2018-09-11 16:53:40,450 DEBUG [main] org.hibernate.validator.internal.xml.ResourceLoaderHelper : Trying to load META-INF/validation.xml via TCCL
+2018-09-11 16:53:40,451 DEBUG [main] org.hibernate.validator.internal.xml.ResourceLoaderHelper : Trying to load META-INF/validation.xml via Hibernate Validator's class loader
+2018-09-11 16:53:40,452 DEBUG [main] org.hibernate.validator.internal.xml.ValidationXmlParser : No META-INF/validation.xml found. Using annotation based configuration only.
+2018-09-11 16:53:44,017 DEBUG [main] org.hibernate.validator.internal.engine.resolver.DefaultTraversableResolver : Cannot find javax.persistence.Persistence on classpath. Assuming non JPA 2 environment. All properties will per default be traversable.
+2018-09-11 16:53:44,033 DEBUG [main] org.hibernate.validator.internal.engine.resolver.DefaultTraversableResolver : Cannot find javax.persistence.Persistence on classpath. Assuming non JPA 2 environment. All properties will per default be traversable.
+2018-09-11 16:53:44,034 DEBUG [main] org.hibernate.validator.internal.engine.ConfigurationImpl : Setting custom MessageInterpolator of type org.springframework.validation.beanvalidation.LocaleContextMessageInterpolator
+2018-09-11 16:53:44,034 DEBUG [main] org.hibernate.validator.internal.engine.ConfigurationImpl : Setting custom ConstraintValidatorFactory of type org.springframework.validation.beanvalidation.SpringConstraintValidatorFactory
+2018-09-11 16:53:44,034 DEBUG [main] org.hibernate.validator.internal.engine.ConfigurationImpl : Setting custom ParameterNameProvider of type com.sun.proxy.$Proxy52
+2018-09-11 16:53:44,035 DEBUG [main] org.hibernate.validator.internal.xml.ValidationXmlParser : Trying to load META-INF/validation.xml for XML based Validator configuration.
+2018-09-11 16:53:44,035 DEBUG [main] org.hibernate.validator.internal.xml.ResourceLoaderHelper : Trying to load META-INF/validation.xml via user class loader
+2018-09-11 16:53:44,036 DEBUG [main] org.hibernate.validator.internal.xml.ResourceLoaderHelper : Trying to load META-INF/validation.xml via TCCL
+2018-09-11 16:53:44,036 DEBUG [main] org.hibernate.validator.internal.xml.ResourceLoaderHelper : Trying to load META-INF/validation.xml via Hibernate Validator's class loader
+2018-09-11 16:53:44,037 DEBUG [main] org.hibernate.validator.internal.xml.ValidationXmlParser : No META-INF/validation.xml found. Using annotation based configuration only.
+2018-09-11 16:53:51,398 DEBUG [main] org.hibernate.validator.internal.engine.resolver.DefaultTraversableResolver : Cannot find javax.persistence.Persistence on classpath. Assuming non JPA 2 environment. All properties will per default be traversable.
+2018-09-11 16:53:51,404 DEBUG [main] org.hibernate.validator.internal.engine.resolver.DefaultTraversableResolver : Cannot find javax.persistence.Persistence on classpath. Assuming non JPA 2 environment. All properties will per default be traversable.
+2018-09-11 16:53:51,404 DEBUG [main] org.hibernate.validator.internal.engine.ConfigurationImpl : Setting custom MessageInterpolator of type org.springframework.validation.beanvalidation.LocaleContextMessageInterpolator
+2018-09-11 16:53:51,405 DEBUG [main] org.hibernate.validator.internal.engine.ConfigurationImpl : Setting custom ConstraintValidatorFactory of type org.springframework.validation.beanvalidation.SpringConstraintValidatorFactory
+2018-09-11 16:53:51,406 DEBUG [main] org.hibernate.validator.internal.engine.ConfigurationImpl : Setting custom ParameterNameProvider of type com.sun.proxy.$Proxy52
+2018-09-11 16:53:51,406 DEBUG [main] org.hibernate.validator.internal.xml.ValidationXmlParser : Trying to load META-INF/validation.xml for XML based Validator configuration.
+2018-09-11 16:53:51,407 DEBUG [main] org.hibernate.validator.internal.xml.ResourceLoaderHelper : Trying to load META-INF/validation.xml via user class loader
+2018-09-11 16:53:51,411 DEBUG [main] org.hibernate.validator.internal.xml.ResourceLoaderHelper : Trying to load META-INF/validation.xml via TCCL
+2018-09-11 16:53:51,412 DEBUG [main] org.hibernate.validator.internal.xml.ResourceLoaderHelper : Trying to load META-INF/validation.xml via Hibernate Validator's class loader
+2018-09-11 16:53:51,413 DEBUG [main] org.hibernate.validator.internal.xml.ValidationXmlParser : No META-INF/validation.xml found. Using annotation based configuration only.
+2018-09-11 16:53:51,495 INFO  [main] com.sscf.collect.receiver.TestRabbitMQ : Started TestRabbitMQ in 21.217 seconds (JVM running for 23.033)
+2018-09-11 16:55:14,364 INFO  [main] com.sscf.collect.receiver.TestRabbitMQ : The following profiles are active: dev
+2018-09-11 16:55:19,168 DEBUG [main] org.hibernate.validator.internal.engine.resolver.DefaultTraversableResolver : Cannot find javax.persistence.Persistence on classpath. Assuming non JPA 2 environment. All properties will per default be traversable.
+2018-09-11 16:55:19,176 DEBUG [main] org.hibernate.validator.internal.engine.resolver.DefaultTraversableResolver : Cannot find javax.persistence.Persistence on classpath. Assuming non JPA 2 environment. All properties will per default be traversable.
+2018-09-11 16:55:19,182 DEBUG [main] org.hibernate.validator.internal.engine.ConfigurationImpl : Setting custom MessageInterpolator of type org.springframework.validation.beanvalidation.LocaleContextMessageInterpolator
+2018-09-11 16:55:19,190 DEBUG [main] org.hibernate.validator.internal.engine.ConfigurationImpl : Setting custom ConstraintValidatorFactory of type org.springframework.validation.beanvalidation.SpringConstraintValidatorFactory
+2018-09-11 16:55:19,191 DEBUG [main] org.hibernate.validator.internal.engine.ConfigurationImpl : Setting custom ParameterNameProvider of type com.sun.proxy.$Proxy52
+2018-09-11 16:55:19,192 DEBUG [main] org.hibernate.validator.internal.xml.ValidationXmlParser : Trying to load META-INF/validation.xml for XML based Validator configuration.
+2018-09-11 16:55:19,192 DEBUG [main] org.hibernate.validator.internal.xml.ResourceLoaderHelper : Trying to load META-INF/validation.xml via user class loader
+2018-09-11 16:55:19,193 DEBUG [main] org.hibernate.validator.internal.xml.ResourceLoaderHelper : Trying to load META-INF/validation.xml via TCCL
+2018-09-11 16:55:19,194 DEBUG [main] org.hibernate.validator.internal.xml.ResourceLoaderHelper : Trying to load META-INF/validation.xml via Hibernate Validator's class loader
+2018-09-11 16:55:19,194 DEBUG [main] org.hibernate.validator.internal.xml.ValidationXmlParser : No META-INF/validation.xml found. Using annotation based configuration only.
+2018-09-11 16:55:23,267 DEBUG [main] org.hibernate.validator.internal.engine.resolver.DefaultTraversableResolver : Cannot find javax.persistence.Persistence on classpath. Assuming non JPA 2 environment. All properties will per default be traversable.
+2018-09-11 16:55:23,285 DEBUG [main] org.hibernate.validator.internal.engine.resolver.DefaultTraversableResolver : Cannot find javax.persistence.Persistence on classpath. Assuming non JPA 2 environment. All properties will per default be traversable.
+2018-09-11 16:55:23,286 DEBUG [main] org.hibernate.validator.internal.engine.ConfigurationImpl : Setting custom MessageInterpolator of type org.springframework.validation.beanvalidation.LocaleContextMessageInterpolator
+2018-09-11 16:55:23,286 DEBUG [main] org.hibernate.validator.internal.engine.ConfigurationImpl : Setting custom ConstraintValidatorFactory of type org.springframework.validation.beanvalidation.SpringConstraintValidatorFactory
+2018-09-11 16:55:23,286 DEBUG [main] org.hibernate.validator.internal.engine.ConfigurationImpl : Setting custom ParameterNameProvider of type com.sun.proxy.$Proxy52
+2018-09-11 16:55:23,286 DEBUG [main] org.hibernate.validator.internal.xml.ValidationXmlParser : Trying to load META-INF/validation.xml for XML based Validator configuration.
+2018-09-11 16:55:23,286 DEBUG [main] org.hibernate.validator.internal.xml.ResourceLoaderHelper : Trying to load META-INF/validation.xml via user class loader
+2018-09-11 16:55:23,287 DEBUG [main] org.hibernate.validator.internal.xml.ResourceLoaderHelper : Trying to load META-INF/validation.xml via TCCL
+2018-09-11 16:55:23,288 DEBUG [main] org.hibernate.validator.internal.xml.ResourceLoaderHelper : Trying to load META-INF/validation.xml via Hibernate Validator's class loader
+2018-09-11 16:55:23,288 DEBUG [main] org.hibernate.validator.internal.xml.ValidationXmlParser : No META-INF/validation.xml found. Using annotation based configuration only.
+2018-09-11 16:55:31,195 DEBUG [main] org.hibernate.validator.internal.engine.resolver.DefaultTraversableResolver : Cannot find javax.persistence.Persistence on classpath. Assuming non JPA 2 environment. All properties will per default be traversable.
+2018-09-11 16:55:31,200 DEBUG [main] org.hibernate.validator.internal.engine.resolver.DefaultTraversableResolver : Cannot find javax.persistence.Persistence on classpath. Assuming non JPA 2 environment. All properties will per default be traversable.
+2018-09-11 16:55:31,200 DEBUG [main] org.hibernate.validator.internal.engine.ConfigurationImpl : Setting custom MessageInterpolator of type org.springframework.validation.beanvalidation.LocaleContextMessageInterpolator
+2018-09-11 16:55:31,206 DEBUG [main] org.hibernate.validator.internal.engine.ConfigurationImpl : Setting custom ConstraintValidatorFactory of type org.springframework.validation.beanvalidation.SpringConstraintValidatorFactory
+2018-09-11 16:55:31,211 DEBUG [main] org.hibernate.validator.internal.engine.ConfigurationImpl : Setting custom ParameterNameProvider of type com.sun.proxy.$Proxy52
+2018-09-11 16:55:31,211 DEBUG [main] org.hibernate.validator.internal.xml.ValidationXmlParser : Trying to load META-INF/validation.xml for XML based Validator configuration.
+2018-09-11 16:55:31,211 DEBUG [main] org.hibernate.validator.internal.xml.ResourceLoaderHelper : Trying to load META-INF/validation.xml via user class loader
+2018-09-11 16:55:31,214 DEBUG [main] org.hibernate.validator.internal.xml.ResourceLoaderHelper : Trying to load META-INF/validation.xml via TCCL
+2018-09-11 16:55:31,216 DEBUG [main] org.hibernate.validator.internal.xml.ResourceLoaderHelper : Trying to load META-INF/validation.xml via Hibernate Validator's class loader
+2018-09-11 16:55:31,217 DEBUG [main] org.hibernate.validator.internal.xml.ValidationXmlParser : No META-INF/validation.xml found. Using annotation based configuration only.
+2018-09-11 16:55:31,284 INFO  [main] com.sscf.collect.receiver.TestRabbitMQ : Started TestRabbitMQ in 21.685 seconds (JVM running for 23.487)
+2018-09-11 16:57:17,456 INFO  [main] com.sscf.collect.receiver.TestRabbitMQ : The following profiles are active: dev
+2018-09-11 16:57:21,040 DEBUG [main] org.hibernate.validator.internal.engine.resolver.DefaultTraversableResolver : Cannot find javax.persistence.Persistence on classpath. Assuming non JPA 2 environment. All properties will per default be traversable.
+2018-09-11 16:57:21,043 DEBUG [main] org.hibernate.validator.internal.engine.resolver.DefaultTraversableResolver : Cannot find javax.persistence.Persistence on classpath. Assuming non JPA 2 environment. All properties will per default be traversable.
+2018-09-11 16:57:21,044 DEBUG [main] org.hibernate.validator.internal.engine.ConfigurationImpl : Setting custom MessageInterpolator of type org.springframework.validation.beanvalidation.LocaleContextMessageInterpolator
+2018-09-11 16:57:21,044 DEBUG [main] org.hibernate.validator.internal.engine.ConfigurationImpl : Setting custom ConstraintValidatorFactory of type org.springframework.validation.beanvalidation.SpringConstraintValidatorFactory
+2018-09-11 16:57:21,045 DEBUG [main] org.hibernate.validator.internal.engine.ConfigurationImpl : Setting custom ParameterNameProvider of type com.sun.proxy.$Proxy52
+2018-09-11 16:57:21,045 DEBUG [main] org.hibernate.validator.internal.xml.ValidationXmlParser : Trying to load META-INF/validation.xml for XML based Validator configuration.
+2018-09-11 16:57:21,045 DEBUG [main] org.hibernate.validator.internal.xml.ResourceLoaderHelper : Trying to load META-INF/validation.xml via user class loader
+2018-09-11 16:57:21,046 DEBUG [main] org.hibernate.validator.internal.xml.ResourceLoaderHelper : Trying to load META-INF/validation.xml via TCCL
+2018-09-11 16:57:21,047 DEBUG [main] org.hibernate.validator.internal.xml.ResourceLoaderHelper : Trying to load META-INF/validation.xml via Hibernate Validator's class loader
+2018-09-11 16:57:21,047 DEBUG [main] org.hibernate.validator.internal.xml.ValidationXmlParser : No META-INF/validation.xml found. Using annotation based configuration only.
+2018-09-11 16:57:24,312 DEBUG [main] org.hibernate.validator.internal.engine.resolver.DefaultTraversableResolver : Cannot find javax.persistence.Persistence on classpath. Assuming non JPA 2 environment. All properties will per default be traversable.
+2018-09-11 16:57:24,323 DEBUG [main] org.hibernate.validator.internal.engine.resolver.DefaultTraversableResolver : Cannot find javax.persistence.Persistence on classpath. Assuming non JPA 2 environment. All properties will per default be traversable.
+2018-09-11 16:57:24,324 DEBUG [main] org.hibernate.validator.internal.engine.ConfigurationImpl : Setting custom MessageInterpolator of type org.springframework.validation.beanvalidation.LocaleContextMessageInterpolator
+2018-09-11 16:57:24,324 DEBUG [main] org.hibernate.validator.internal.engine.ConfigurationImpl : Setting custom ConstraintValidatorFactory of type org.springframework.validation.beanvalidation.SpringConstraintValidatorFactory
+2018-09-11 16:57:24,324 DEBUG [main] org.hibernate.validator.internal.engine.ConfigurationImpl : Setting custom ParameterNameProvider of type com.sun.proxy.$Proxy52
+2018-09-11 16:57:24,325 DEBUG [main] org.hibernate.validator.internal.xml.ValidationXmlParser : Trying to load META-INF/validation.xml for XML based Validator configuration.
+2018-09-11 16:57:24,325 DEBUG [main] org.hibernate.validator.internal.xml.ResourceLoaderHelper : Trying to load META-INF/validation.xml via user class loader
+2018-09-11 16:57:24,326 DEBUG [main] org.hibernate.validator.internal.xml.ResourceLoaderHelper : Trying to load META-INF/validation.xml via TCCL
+2018-09-11 16:57:24,326 DEBUG [main] org.hibernate.validator.internal.xml.ResourceLoaderHelper : Trying to load META-INF/validation.xml via Hibernate Validator's class loader
+2018-09-11 16:57:24,326 DEBUG [main] org.hibernate.validator.internal.xml.ValidationXmlParser : No META-INF/validation.xml found. Using annotation based configuration only.
+2018-09-11 16:57:28,999 DEBUG [main] org.hibernate.validator.internal.engine.resolver.DefaultTraversableResolver : Cannot find javax.persistence.Persistence on classpath. Assuming non JPA 2 environment. All properties will per default be traversable.
+2018-09-11 16:57:29,001 DEBUG [main] org.hibernate.validator.internal.engine.resolver.DefaultTraversableResolver : Cannot find javax.persistence.Persistence on classpath. Assuming non JPA 2 environment. All properties will per default be traversable.
+2018-09-11 16:57:29,002 DEBUG [main] org.hibernate.validator.internal.engine.ConfigurationImpl : Setting custom MessageInterpolator of type org.springframework.validation.beanvalidation.LocaleContextMessageInterpolator
+2018-09-11 16:57:29,002 DEBUG [main] org.hibernate.validator.internal.engine.ConfigurationImpl : Setting custom ConstraintValidatorFactory of type org.springframework.validation.beanvalidation.SpringConstraintValidatorFactory
+2018-09-11 16:57:29,002 DEBUG [main] org.hibernate.validator.internal.engine.ConfigurationImpl : Setting custom ParameterNameProvider of type com.sun.proxy.$Proxy52
+2018-09-11 16:57:29,002 DEBUG [main] org.hibernate.validator.internal.xml.ValidationXmlParser : Trying to load META-INF/validation.xml for XML based Validator configuration.
+2018-09-11 16:57:29,002 DEBUG [main] org.hibernate.validator.internal.xml.ResourceLoaderHelper : Trying to load META-INF/validation.xml via user class loader
+2018-09-11 16:57:29,003 DEBUG [main] org.hibernate.validator.internal.xml.ResourceLoaderHelper : Trying to load META-INF/validation.xml via TCCL
+2018-09-11 16:57:29,004 DEBUG [main] org.hibernate.validator.internal.xml.ResourceLoaderHelper : Trying to load META-INF/validation.xml via Hibernate Validator's class loader
+2018-09-11 16:57:29,005 DEBUG [main] org.hibernate.validator.internal.xml.ValidationXmlParser : No META-INF/validation.xml found. Using annotation based configuration only.
+2018-09-11 16:57:29,040 INFO  [main] com.sscf.collect.receiver.TestRabbitMQ : Started TestRabbitMQ in 14.454 seconds (JVM running for 15.457)
+2018-09-11 16:57:29,264 DEBUG [main] com.sscf.collect.dao.LoginResultDao.selectLoginResultList : ==>  Preparing: select sum(r.login_count) login_count, DATE_FORMAT(insert_time,'%H') hour from login_result r WHERE r.insert_time >= ? and r.insert_time <=? and r.phone=? group by DATE_FORMAT(r.insert_time,'%H') 
+2018-09-11 16:57:29,291 DEBUG [main] com.sscf.collect.dao.LoginResultDao.selectLoginResultList : ==> Parameters: 2018-09-03 00:00:00(String), 2018-09-11 24:00:00(String), 13073333333(String)
+2018-09-11 16:57:29,310 DEBUG [main] com.sscf.collect.dao.LoginResultDao.selectLoginResultList : <==      Total: 1
+2018-09-11 17:15:21,427 INFO  [main] com.sscf.collect.receiver.TestRabbitMQ : The following profiles are active: dev
+2018-09-11 17:15:25,254 DEBUG [main] org.hibernate.validator.internal.engine.resolver.DefaultTraversableResolver : Cannot find javax.persistence.Persistence on classpath. Assuming non JPA 2 environment. All properties will per default be traversable.
+2018-09-11 17:15:25,256 DEBUG [main] org.hibernate.validator.internal.engine.resolver.DefaultTraversableResolver : Cannot find javax.persistence.Persistence on classpath. Assuming non JPA 2 environment. All properties will per default be traversable.
+2018-09-11 17:15:25,258 DEBUG [main] org.hibernate.validator.internal.engine.ConfigurationImpl : Setting custom MessageInterpolator of type org.springframework.validation.beanvalidation.LocaleContextMessageInterpolator
+2018-09-11 17:15:25,259 DEBUG [main] org.hibernate.validator.internal.engine.ConfigurationImpl : Setting custom ConstraintValidatorFactory of type org.springframework.validation.beanvalidation.SpringConstraintValidatorFactory
+2018-09-11 17:15:25,259 DEBUG [main] org.hibernate.validator.internal.engine.ConfigurationImpl : Setting custom ParameterNameProvider of type com.sun.proxy.$Proxy52
+2018-09-11 17:15:25,259 DEBUG [main] org.hibernate.validator.internal.xml.ValidationXmlParser : Trying to load META-INF/validation.xml for XML based Validator configuration.
+2018-09-11 17:15:25,259 DEBUG [main] org.hibernate.validator.internal.xml.ResourceLoaderHelper : Trying to load META-INF/validation.xml via user class loader
+2018-09-11 17:15:25,261 DEBUG [main] org.hibernate.validator.internal.xml.ResourceLoaderHelper : Trying to load META-INF/validation.xml via TCCL
+2018-09-11 17:15:25,262 DEBUG [main] org.hibernate.validator.internal.xml.ResourceLoaderHelper : Trying to load META-INF/validation.xml via Hibernate Validator's class loader
+2018-09-11 17:15:25,264 DEBUG [main] org.hibernate.validator.internal.xml.ValidationXmlParser : No META-INF/validation.xml found. Using annotation based configuration only.
+2018-09-11 17:15:29,272 DEBUG [main] org.hibernate.validator.internal.engine.resolver.DefaultTraversableResolver : Cannot find javax.persistence.Persistence on classpath. Assuming non JPA 2 environment. All properties will per default be traversable.
+2018-09-11 17:15:29,284 DEBUG [main] org.hibernate.validator.internal.engine.resolver.DefaultTraversableResolver : Cannot find javax.persistence.Persistence on classpath. Assuming non JPA 2 environment. All properties will per default be traversable.
+2018-09-11 17:15:29,284 DEBUG [main] org.hibernate.validator.internal.engine.ConfigurationImpl : Setting custom MessageInterpolator of type org.springframework.validation.beanvalidation.LocaleContextMessageInterpolator
+2018-09-11 17:15:29,284 DEBUG [main] org.hibernate.validator.internal.engine.ConfigurationImpl : Setting custom ConstraintValidatorFactory of type org.springframework.validation.beanvalidation.SpringConstraintValidatorFactory
+2018-09-11 17:15:29,285 DEBUG [main] org.hibernate.validator.internal.engine.ConfigurationImpl : Setting custom ParameterNameProvider of type com.sun.proxy.$Proxy52
+2018-09-11 17:15:29,285 DEBUG [main] org.hibernate.validator.internal.xml.ValidationXmlParser : Trying to load META-INF/validation.xml for XML based Validator configuration.
+2018-09-11 17:15:29,285 DEBUG [main] org.hibernate.validator.internal.xml.ResourceLoaderHelper : Trying to load META-INF/validation.xml via user class loader
+2018-09-11 17:15:29,286 DEBUG [main] org.hibernate.validator.internal.xml.ResourceLoaderHelper : Trying to load META-INF/validation.xml via TCCL
+2018-09-11 17:15:29,286 DEBUG [main] org.hibernate.validator.internal.xml.ResourceLoaderHelper : Trying to load META-INF/validation.xml via Hibernate Validator's class loader
+2018-09-11 17:15:29,287 DEBUG [main] org.hibernate.validator.internal.xml.ValidationXmlParser : No META-INF/validation.xml found. Using annotation based configuration only.
+2018-09-11 17:15:34,835 DEBUG [main] org.hibernate.validator.internal.engine.resolver.DefaultTraversableResolver : Cannot find javax.persistence.Persistence on classpath. Assuming non JPA 2 environment. All properties will per default be traversable.
+2018-09-11 17:15:34,837 DEBUG [main] org.hibernate.validator.internal.engine.resolver.DefaultTraversableResolver : Cannot find javax.persistence.Persistence on classpath. Assuming non JPA 2 environment. All properties will per default be traversable.
+2018-09-11 17:15:34,837 DEBUG [main] org.hibernate.validator.internal.engine.ConfigurationImpl : Setting custom MessageInterpolator of type org.springframework.validation.beanvalidation.LocaleContextMessageInterpolator
+2018-09-11 17:15:34,837 DEBUG [main] org.hibernate.validator.internal.engine.ConfigurationImpl : Setting custom ConstraintValidatorFactory of type org.springframework.validation.beanvalidation.SpringConstraintValidatorFactory
+2018-09-11 17:15:34,837 DEBUG [main] org.hibernate.validator.internal.engine.ConfigurationImpl : Setting custom ParameterNameProvider of type com.sun.proxy.$Proxy52
+2018-09-11 17:15:34,838 DEBUG [main] org.hibernate.validator.internal.xml.ValidationXmlParser : Trying to load META-INF/validation.xml for XML based Validator configuration.
+2018-09-11 17:15:34,838 DEBUG [main] org.hibernate.validator.internal.xml.ResourceLoaderHelper : Trying to load META-INF/validation.xml via user class loader
+2018-09-11 17:15:34,839 DEBUG [main] org.hibernate.validator.internal.xml.ResourceLoaderHelper : Trying to load META-INF/validation.xml via TCCL
+2018-09-11 17:15:34,839 DEBUG [main] org.hibernate.validator.internal.xml.ResourceLoaderHelper : Trying to load META-INF/validation.xml via Hibernate Validator's class loader
+2018-09-11 17:15:34,840 DEBUG [main] org.hibernate.validator.internal.xml.ValidationXmlParser : No META-INF/validation.xml found. Using annotation based configuration only.
+2018-09-11 17:15:34,874 INFO  [main] com.sscf.collect.receiver.TestRabbitMQ : Started TestRabbitMQ in 16.612 seconds (JVM running for 17.709)
+2018-09-11 17:15:35,073 DEBUG [main] com.sscf.collect.dao.LoginResultDao.selectLoginResultList : ==>  Preparing: select sum(r.login_count) login_count, DATE_FORMAT(insert_time,'%H') hour from login_result r WHERE r.insert_time >= ? and r.insert_time <=? and r.phone=? group by DATE_FORMAT(r.insert_time,'%H') 
+2018-09-11 17:15:35,099 DEBUG [main] com.sscf.collect.dao.LoginResultDao.selectLoginResultList : ==> Parameters: 2018-09-03 00:00:00(String), 2018-09-11 24:00:00(String), 13073333333(String)
+2018-09-11 17:15:35,125 DEBUG [main] com.sscf.collect.dao.LoginResultDao.selectLoginResultList : <==      Total: 1
+2018-09-11 17:18:25,902 INFO  [main] com.sscf.collect.receiver.TestRabbitMQ : The following profiles are active: dev
+2018-09-11 17:18:28,627 DEBUG [main] org.hibernate.validator.internal.engine.resolver.DefaultTraversableResolver : Cannot find javax.persistence.Persistence on classpath. Assuming non JPA 2 environment. All properties will per default be traversable.
+2018-09-11 17:18:28,628 DEBUG [main] org.hibernate.validator.internal.engine.resolver.DefaultTraversableResolver : Cannot find javax.persistence.Persistence on classpath. Assuming non JPA 2 environment. All properties will per default be traversable.
+2018-09-11 17:18:28,629 DEBUG [main] org.hibernate.validator.internal.engine.ConfigurationImpl : Setting custom MessageInterpolator of type org.springframework.validation.beanvalidation.LocaleContextMessageInterpolator
+2018-09-11 17:18:28,629 DEBUG [main] org.hibernate.validator.internal.engine.ConfigurationImpl : Setting custom ConstraintValidatorFactory of type org.springframework.validation.beanvalidation.SpringConstraintValidatorFactory
+2018-09-11 17:18:28,629 DEBUG [main] org.hibernate.validator.internal.engine.ConfigurationImpl : Setting custom ParameterNameProvider of type com.sun.proxy.$Proxy52
+2018-09-11 17:18:28,630 DEBUG [main] org.hibernate.validator.internal.xml.ValidationXmlParser : Trying to load META-INF/validation.xml for XML based Validator configuration.
+2018-09-11 17:18:28,630 DEBUG [main] org.hibernate.validator.internal.xml.ResourceLoaderHelper : Trying to load META-INF/validation.xml via user class loader
+2018-09-11 17:18:28,630 DEBUG [main] org.hibernate.validator.internal.xml.ResourceLoaderHelper : Trying to load META-INF/validation.xml via TCCL
+2018-09-11 17:18:28,631 DEBUG [main] org.hibernate.validator.internal.xml.ResourceLoaderHelper : Trying to load META-INF/validation.xml via Hibernate Validator's class loader
+2018-09-11 17:18:28,632 DEBUG [main] org.hibernate.validator.internal.xml.ValidationXmlParser : No META-INF/validation.xml found. Using annotation based configuration only.
+2018-09-11 17:18:31,457 DEBUG [main] org.hibernate.validator.internal.engine.resolver.DefaultTraversableResolver : Cannot find javax.persistence.Persistence on classpath. Assuming non JPA 2 environment. All properties will per default be traversable.
+2018-09-11 17:18:31,467 DEBUG [main] org.hibernate.validator.internal.engine.resolver.DefaultTraversableResolver : Cannot find javax.persistence.Persistence on classpath. Assuming non JPA 2 environment. All properties will per default be traversable.
+2018-09-11 17:18:31,468 DEBUG [main] org.hibernate.validator.internal.engine.ConfigurationImpl : Setting custom MessageInterpolator of type org.springframework.validation.beanvalidation.LocaleContextMessageInterpolator
+2018-09-11 17:18:31,468 DEBUG [main] org.hibernate.validator.internal.engine.ConfigurationImpl : Setting custom ConstraintValidatorFactory of type org.springframework.validation.beanvalidation.SpringConstraintValidatorFactory
+2018-09-11 17:18:31,468 DEBUG [main] org.hibernate.validator.internal.engine.ConfigurationImpl : Setting custom ParameterNameProvider of type com.sun.proxy.$Proxy52
+2018-09-11 17:18:31,469 DEBUG [main] org.hibernate.validator.internal.xml.ValidationXmlParser : Trying to load META-INF/validation.xml for XML based Validator configuration.
+2018-09-11 17:18:31,469 DEBUG [main] org.hibernate.validator.internal.xml.ResourceLoaderHelper : Trying to load META-INF/validation.xml via user class loader
+2018-09-11 17:18:31,469 DEBUG [main] org.hibernate.validator.internal.xml.ResourceLoaderHelper : Trying to load META-INF/validation.xml via TCCL
+2018-09-11 17:18:31,470 DEBUG [main] org.hibernate.validator.internal.xml.ResourceLoaderHelper : Trying to load META-INF/validation.xml via Hibernate Validator's class loader
+2018-09-11 17:18:31,470 DEBUG [main] org.hibernate.validator.internal.xml.ValidationXmlParser : No META-INF/validation.xml found. Using annotation based configuration only.
+2018-09-11 17:18:35,092 DEBUG [main] org.hibernate.validator.internal.engine.resolver.DefaultTraversableResolver : Cannot find javax.persistence.Persistence on classpath. Assuming non JPA 2 environment. All properties will per default be traversable.
+2018-09-11 17:18:35,094 DEBUG [main] org.hibernate.validator.internal.engine.resolver.DefaultTraversableResolver : Cannot find javax.persistence.Persistence on classpath. Assuming non JPA 2 environment. All properties will per default be traversable.
+2018-09-11 17:18:35,094 DEBUG [main] org.hibernate.validator.internal.engine.ConfigurationImpl : Setting custom MessageInterpolator of type org.springframework.validation.beanvalidation.LocaleContextMessageInterpolator
+2018-09-11 17:18:35,095 DEBUG [main] org.hibernate.validator.internal.engine.ConfigurationImpl : Setting custom ConstraintValidatorFactory of type org.springframework.validation.beanvalidation.SpringConstraintValidatorFactory
+2018-09-11 17:18:35,095 DEBUG [main] org.hibernate.validator.internal.engine.ConfigurationImpl : Setting custom ParameterNameProvider of type com.sun.proxy.$Proxy52
+2018-09-11 17:18:35,095 DEBUG [main] org.hibernate.validator.internal.xml.ValidationXmlParser : Trying to load META-INF/validation.xml for XML based Validator configuration.
+2018-09-11 17:18:35,095 DEBUG [main] org.hibernate.validator.internal.xml.ResourceLoaderHelper : Trying to load META-INF/validation.xml via user class loader
+2018-09-11 17:18:35,096 DEBUG [main] org.hibernate.validator.internal.xml.ResourceLoaderHelper : Trying to load META-INF/validation.xml via TCCL
+2018-09-11 17:18:35,096 DEBUG [main] org.hibernate.validator.internal.xml.ResourceLoaderHelper : Trying to load META-INF/validation.xml via Hibernate Validator's class loader
+2018-09-11 17:18:35,097 DEBUG [main] org.hibernate.validator.internal.xml.ValidationXmlParser : No META-INF/validation.xml found. Using annotation based configuration only.
+2018-09-11 17:18:35,129 INFO  [main] com.sscf.collect.receiver.TestRabbitMQ : Started TestRabbitMQ in 12.124 seconds (JVM running for 13.093)
+2018-09-11 17:18:35,299 DEBUG [main] com.sscf.collect.dao.LoginResultDao.selectLoginResultList : ==>  Preparing: select sum(r.login_count) login_count, DATE_FORMAT(insert_time,'%H') hour from login_result r WHERE r.insert_time >= ? and r.insert_time <=? and r.phone=? group by DATE_FORMAT(r.insert_time,'%H') 
+2018-09-11 17:18:35,324 DEBUG [main] com.sscf.collect.dao.LoginResultDao.selectLoginResultList : ==> Parameters: 2018-09-03 00:00:00(String), 2018-09-11 24:00:00(String), 13073333333(String)
+2018-09-11 17:18:35,340 DEBUG [main] com.sscf.collect.dao.LoginResultDao.selectLoginResultList : <==      Total: 1
