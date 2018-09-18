@@ -37,8 +37,8 @@ import cn.hutool.core.date.DateUtil;
 /**
  * @author lvcn
  */
-@RestController
-@RequestMapping(value = "/loginResult")
+/*@RestController
+@RequestMapping(value = "/loginResult")*/
 public class LoginResultController extends BaseController {
 	/**
 	 * logger.
@@ -56,8 +56,8 @@ public class LoginResultController extends BaseController {
 	 * @param collect 新增对象
 	 * @return 响应结果
 	 */
-	@RequestMapping(value = "/select")
-	@ResponseBody
+/*	@RequestMapping(value = "/select")
+	@ResponseBody*/
 	public Result getLoginResult(@RequestBody LoginResultDto dto) {
 		//PageResult<LoginResult> pageResult = loginResult.selectPageLoginResult(dto);
 		return ResultUtil.success("");

@@ -27,8 +27,8 @@ import cn.hutool.core.date.DateUtil;
 /**
  * @author lvcn
  */
-@RestController
-@RequestMapping(value = "/admin-api")
+/*@RestController
+@RequestMapping(value = "/admin-api")*/
 public class SingleuserController extends BaseController {
 
     /** The singleuser service . */
@@ -41,8 +41,8 @@ public class SingleuserController extends BaseController {
      * @param dto 查询对象
      * @return 响应结果
      */
-    @RequestMapping(value = "/qrySingleuser")
-    @ResponseBody
+   /* @RequestMapping(value = "/qrySingleuser")
+    @ResponseBody*/
     public Result qrySingleuser(@RequestBody @Valid SingleuserDto dto) {
         Date startTime = dto.getStart_time();
         Date endTime = dto.getEnd_time();

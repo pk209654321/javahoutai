@@ -27,8 +27,8 @@ import cn.hutool.core.date.DateUtil;
 /**
  * @author lvcn
  */
-@RestController
-@RequestMapping(value = "/admin-api")
+/*@RestController
+@RequestMapping(value = "/admin-api")*/
 public class SpecialistController extends BaseController {
 
     /** The specialist service . */
@@ -41,8 +41,8 @@ public class SpecialistController extends BaseController {
      * @param dto 查询对象
      * @return 响应结果
      */
-    @RequestMapping(value = "/qrySpecialist")
-    @ResponseBody
+    /*@RequestMapping(value = "/qrySpecialist")
+    @ResponseBody*/
     public Result qrySpecialist(@RequestBody @Valid SpecialistDto dto) {
         Date startTime = dto.getStart_time();
         Date endTime = dto.getEnd_time();

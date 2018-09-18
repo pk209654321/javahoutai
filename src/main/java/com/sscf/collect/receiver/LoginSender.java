@@ -18,6 +18,7 @@ public class LoginSender {
 		loginResult.setLogin_count(11);
 		loginResult.setUser_id(2);
 		
+		
 		template.convertAndSend("online-user-trace", loginResult);
 	}
 }

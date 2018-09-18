@@ -30,8 +30,8 @@ import cn.hutool.core.date.DateUtil;
 /**
  * @author lvcn
  */
-@RestController
-@RequestMapping(value = "/gzh")
+/*@RestController
+@RequestMapping(value = "/gzh")*/
 public class PublicnoUserClickController extends BaseController {
 
     /** The videoplay service . */
@@ -46,8 +46,8 @@ public class PublicnoUserClickController extends BaseController {
      * @param dto 查询对象
      * @return 响应结果
      */
-    @RequestMapping(value = "/qryVideoplay")
-    @ResponseBody
+    /*@RequestMapping(value = "/qryVideoplay")
+    @ResponseBody*/
     public Result qryVideoplay(@RequestBody @Valid VideoplayDto dto) {
         Date startTime = dto.getStart_time();
         Date endTime = dto.getEnd_time();
@@ -74,8 +74,8 @@ public class PublicnoUserClickController extends BaseController {
         return ResultUtil.success(page);
     }
     
-    @RequestMapping(value = "/qryPublicnoUserClick")
-    @ResponseBody
+   /* @RequestMapping(value = "/qryPublicnoUserClick")
+    @ResponseBody*/
     public Result qryPublicnoUserClick(@RequestBody PublicnoUserClickDto publicnoUserClickDto) {
     	PageResult<PublicnoUserClick> page=null;
     	page=publicnoUserClickService.qryPagePublicnoUserClick(publicnoUserClickDto);

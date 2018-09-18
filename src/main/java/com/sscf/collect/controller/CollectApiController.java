@@ -32,8 +32,8 @@ import cn.hutool.core.date.DateUtil;
 /**
  * @author lvcn
  */
-@RestController
-@RequestMapping(value = "/api")
+/*@RestController
+@RequestMapping(value = "/api")*/
 public class CollectApiController extends BaseController {
 	/**
 	 * logger.
@@ -50,7 +50,7 @@ public class CollectApiController extends BaseController {
 	 * @param collect 新增对象
 	 * @return 响应结果
 	 */
-	@RequestMapping(value = "/auth/collect")
+	/*@RequestMapping(value = "/auth/collect")*/
 	public Result collect(@RequestBody @Valid Collect collect) {
 //		ThreadUtil.excAsync(() -> {
 		redisCollect(collect);
@@ -106,12 +106,12 @@ public class CollectApiController extends BaseController {
 		}
 	}
 	
-    @RequestMapping(value="/wang")
+   /* @RequestMapping(value="/wang")*/
     public void index(@RequestBody User user) {
     	System.out.println("json------------"+user);
     }
 	
-    @RequestMapping(value = "/test") 
+   /* @RequestMapping(value = "/test") */
     String hello(){ 
         return "hello"; 
     } 

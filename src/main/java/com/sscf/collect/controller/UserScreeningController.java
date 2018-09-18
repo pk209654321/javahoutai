@@ -31,8 +31,8 @@ import com.sscf.education.common.util.ResultUtil;
 /**
  * @author songyong
  */
-@RestController
-@RequestMapping(value = "/admin-api")
+/*@RestController
+@RequestMapping(value = "/admin-api")*/
 public class UserScreeningController extends BaseController {
 	/**
 	 * logger.
@@ -49,8 +49,8 @@ public class UserScreeningController extends BaseController {
 	 * @param dto 查询对象
 	 * @return 响应结果
 	 */
-	@RequestMapping(value = "/qryUserScreening")
-	@ResponseBody
+	/*@RequestMapping(value = "/qryUserScreening")
+	@ResponseBody*/
 	public Result qryUserScreening(@RequestBody(required = false) UserScreeningDto dto) {
 		Result result = null;
 		List<ScreeningObj> screeningList = new ArrayList<ScreeningObj>();
@@ -92,8 +92,8 @@ public class UserScreeningController extends BaseController {
 	 * @param dto 查询对象
 	 * @return 响应结果
 	 */
-	@RequestMapping(value = "/qryAdviserScreening")
-	@ResponseBody
+	/*@RequestMapping(value = "/qryAdviserScreening")
+	@ResponseBody*/
 	public Result qryAdviserScreening(@RequestBody(required = false) UserScreeningDto dto) {
 		List<AdviserScreeningObj> list = userScreeningService.qryAdviserScreening(dto);
 		return ResultUtil.success(list);
@@ -106,8 +106,8 @@ public class UserScreeningController extends BaseController {
 	 * @param dto 查询对象
 	 * @return 响应结果
 	 */
-	@RequestMapping(value = "/qryCourseScreening")
-	@ResponseBody
+	/*@RequestMapping(value = "/qryCourseScreening")
+	@ResponseBody*/
 	public Result qryCourseScreening(@RequestBody(required = false) UserScreeningDto dto) {
 		List<CourseScreeningObj> list = userScreeningService.qryCourseScreening(dto);
 		return ResultUtil.success(list);
@@ -119,8 +119,8 @@ public class UserScreeningController extends BaseController {
 	 * @param dto 查询对象
 	 * @return 响应结果
 	 */
-	@RequestMapping(value = "/qryCourseLiveScreening")
-	@ResponseBody
+/*	@RequestMapping(value = "/qryCourseLiveScreening")
+	@ResponseBody*/
 	public Result qryCourseLiveScreening(@RequestBody(required = false) UserScreeningDto dto) {
 		List<CourseLiveScreeningObj> list = userScreeningService.qryCourseLiveScreening(dto);
 		return ResultUtil.success(list);
