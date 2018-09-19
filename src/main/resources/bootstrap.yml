@@ -12,3 +12,4 @@ logging:
     org.springframework.web: ERROR
     org.hibernate: DEBUG
     com.sscf: DEBUG
+    

@@ -30,7 +30,7 @@ public class LoginReceive {
 	@Autowired
 	AmqpTemplate amqpTemplate;
 
-	//@RabbitListener(queues = MqConstant.USER_TRACK_QUEUES) // 监听器监听指定的Queue
+	@RabbitListener(queues = MqConstant.USER_TRACK_QUEUES) // 监听器监听指定的Queue
 	public void processC(byte[] data, @Header(AmqpHeaders.REPLY_TO) String replyTo, @Header(AmqpHeaders.CORRELATION_ID) byte[] correlationId) {
 		List<LoginResult> selectLoginResultList = new ArrayList<>();
 		try {

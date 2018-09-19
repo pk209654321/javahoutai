@@ -1,5 +1,6 @@
-/target/*
-/META-INF/*
-/META-INF/
-/target/
 /com/
+/pom.xml
+/src/
+/target/
+/META-INF/
+/logs/

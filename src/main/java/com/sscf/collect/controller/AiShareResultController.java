@@ -18,16 +18,16 @@ import com.sscf.education.common.entity.PageResult;
 import com.sscf.education.common.entity.Result;
 import com.sscf.education.common.util.ResultUtil;
 
-@RestController
-@RequestMapping("/share")
+/*@RestController
+@RequestMapping("/share")*/
 public class AiShareResultController {
 	private static final Logger logger = LoggerFactory.getLogger(AiShareResultController.class);
 	
 	@Autowired
 	AiShareResultService aiShare;
 	
-	@RequestMapping(value = "/selectAiShareResult")
-	@ResponseBody
+	/*@RequestMapping(value = "/selectAiShareResult")
+	@ResponseBody*/
 	public Result selectAiShareResult(@RequestBody AiShareResultDto dto ) {
 		logger.debug("接受到的参数dto:"+JSON.toJSONString(dto));
 		PageResult<AiShareResult> selectPageAiShareResult = aiShare.selectPageAiShareResult(dto);

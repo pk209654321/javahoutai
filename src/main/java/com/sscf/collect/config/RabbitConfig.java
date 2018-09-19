@@ -14,10 +14,10 @@ public class RabbitConfig {
         return new DirectExchange("user"); 
     }*/
 	
-	 @Bean
+	/* @Bean //
      public Queue queue() {
           return new Queue("online-user-trace");
-     }
+     }*/
     
 
 }

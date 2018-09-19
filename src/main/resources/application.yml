@@ -74,6 +74,15 @@ spring:
     password: 123456
     publisher-confirms: true
     virtual-host: /
+    ssl:
+      enabled: true
+      key-store: /keystore/rabbit-client.keycert.p12
+      key-store-password: sscf1234
+      key-store-type: PKCS12
+      trust-store: /keystore/rabbitstore.store
+      trust-store-password: sscf1234
+      trust-store-type: JKS
+      validate-server-certificate: true
  
   task:
     pool:
